@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Auto‑Dashboard · Chat‑Mockup</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="chat-header">
+        <div class="badge">AUTO DASHBOARD</div>
+        <div class="toolbar">
+          <button class="icon-btn" title="Minimize">—</button>
+          <button class="icon-btn" title="Pin">📌</button>
+        </div>
+      </header>
+
+      <main class="chat-area" aria-label="Chatverlauf">
+        <div class="message user" aria-label="User">
+          <div class="bubble user-bubble">
+            Display the top 3 Forecast in USD by Account.
+          </div>
+          <div class="meta">You · 2 min ago</div>
+        </div>
+
+        <div class="message bot" aria-label="AutoBot">
+          <div class="card bot-card">
+            <div class="card-body">
+              <p class="lead">The top 3 forecasts in USD by account are as follows:</p>
+              <ul class="bullets">
+                <li>Alamos Gold Inc. — Forecast in USD: $617,685</li>
+                <li>CHS Inc — Forecast in USD: $617,300</li>
+                <li>Goldman Sachs Group, Inc. (The) — Forecast in USD: $594,505</li>
+              </ul>
+              <div class="mini-viz" role="img" aria-label="Bar chart preview">
+                <svg viewBox="0 0 300 150" preserveAspectRatio="none">
+                  <g fill="#e5e7eb">
+                    <rect x="40" y="10" width="1" height="120"></rect>
+                    <rect x="40" y="130" width="240" height="1"></rect>
+                  </g>
+                  <g fill="#10a5a5">
+                    <rect x="70" y="50" width="40" height="80"></rect>
+                    <rect x="130" y="45" width="40" height="85"></rect>
+                    <rect x="190" y="60" width="40" height="70"></rect>
+                  </g>
+                </svg>
+              </div>
+              <button class="fab" title="Download">⬇</button>
+            </div>
+          </div>
+          <div class="meta">AutoBot · 1 min ago</div>
+        </div>
+
+        <section class="suggestions" aria-label="Related Suggestions">
+          <div class="suggestions-header">Related Suggestions</div>
+          <div class="suggestion-list">
+            <button class="sugg"><span class="ico">📊</span> Show me a graph of Pipeline in USD by Account.</button>
+            <button class="sugg"><span class="ico">📈</span> Display the average Forecast in USD by Account.</button>
+            <button class="sugg"><span class="ico">🧩</span> Create a page for Pipeline in USD analysis.</button>
+            <button class="sugg ghost"><span class="ico">✨</span> Page creation recommendations.</button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="composer" aria-label="Input area">
+        <div class="input-wrap">
+          <button class="icon-btn" title="Attach">📎</button>
+          <input type="text" placeholder="Ask me a question. (Questions remaining: 90)" />
+          <button class="send">Send</button>
+        </div>
+        <div class="hint">Responses are based on your permissions and data models.</div>
+      </footer>
+    </div>
+  </body>
+  </html>

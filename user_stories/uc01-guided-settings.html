@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UC1 — Guided Settings · Dark/Bright Mode</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="chat-header">
+        <div class="badge">AUTO DASHBOARD</div>
+        <div class="toolbar">
+          <button class="icon-btn" title="Minimize">—</button>
+          <button class="icon-btn" title="Pin">📌</button>
+        </div>
+      </header>
+
+      <main class="chat-area" aria-label="Chat conversation">
+        <div class="message user" aria-label="User">
+          <div class="bubble user-bubble">
+            How do I switch between dark and bright mode for my dashboard theme?
+          </div>
+          <div class="meta">You · 2 min ago</div>
+        </div>
+
+        <div class="message bot" aria-label="AutoBot">
+          <div class="card bot-card">
+            <div class="card-body">
+              <p class="lead">I'll guide you through theme configuration with step-by-step instructions and quick actions:</p>
+              
+              <div class="guide-section">
+                <h4>📍 Current Theme: Bright Mode</h4>
+                <p class="guide-text">Your dashboard is currently using the bright theme. Here are your options:</p>
+              </div>
+
+              <div class="action-grid">
+                <div class="action-card">
+                  <div class="action-header">
+                    <span class="action-icon">🌙</span>
+                    <span class="action-title">Dark Mode</span>
+                  </div>
+                  <p class="action-desc">Better for low-light environments, reduces eye strain</p>
+                  <button class="action-btn primary">Apply Dark Theme</button>
+                </div>
+                
+                <div class="action-card">
+                  <div class="action-header">
+                    <span class="action-icon">☀️</span>
+                    <span class="action-title">Bright Mode</span>
+                  </div>
+                  <p class="action-desc">High contrast, optimal for presentations</p>
+                  <button class="action-btn secondary">Keep Bright Theme</button>
+                </div>
+              </div>
+
+              <div class="guide-path">
+                <div class="path-header">📋 Manual Steps (if needed):</div>
+                <ol class="path-steps">
+                  <li><strong>Settings</strong> → Appearance</li>
+                  <li>Select <strong>Theme</strong> dropdown</li>
+                  <li>Choose <strong>Dark</strong> or <strong>Light</strong></li>
+                  <li>Click <strong>Apply</strong></li>
+                </ol>
+                <button class="guide-btn">Show me in UI</button>
+              </div>
+
+              <div class="preview-toggle">
+                <span class="preview-label">Preview:</span>
+                <div class="theme-preview">
+                  <div class="preview-item dark">
+                    <div class="preview-header dark-header">Dark Theme</div>
+                    <div class="preview-chart dark-chart"></div>
+                  </div>
+                  <div class="preview-item bright">
+                    <div class="preview-header bright-header">Bright Theme</div>
+                    <div class="preview-chart bright-chart"></div>
+                  </div>
+                </div>
+              </div>
+
+              <button class="fab" title="Download Settings">⬇</button>
+            </div>
+          </div>
+          <div class="meta">AutoBot · 1 min ago</div>
+        </div>
+
+        <section class="suggestions" aria-label="Related Suggestions">
+          <div class="suggestions-header">Related Settings</div>
+          <div class="suggestion-list">
+            <button class="sugg"><span class="ico">🎨</span> Configure color palette for charts</button>
+            <button class="sugg"><span class="ico">📊</span> Adjust dashboard layout grid</button>
+            <button class="sugg"><span class="ico">⚙️</span> Set up accessibility preferences</button>
+            <button class="sugg ghost"><span class="ico">✨</span> Advanced theme customization</button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="composer" aria-label="Input area">
+        <div class="input-wrap">
+          <button class="icon-btn" title="Attach">📎</button>
+          <input type="text" placeholder="Ask me about settings, configurations, or dashboard options..." />
+          <button class="send">Send</button>
+        </div>
+        <div class="hint">Responses are based on your permissions and current dashboard settings.</div>
+      </footer>
+    </div>
+  </body>
+</html>

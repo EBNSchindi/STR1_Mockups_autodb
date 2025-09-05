@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UC7 — Chart Path Hints · Dashboard Board Visualization</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="dashboard-board">
+    <!-- Dashboard Header -->
+    <header class="dashboard-header">
+      <div class="dashboard-title">
+        <h1>Q3 Sales Dashboard</h1>
+        <div class="dashboard-meta">
+          <span class="last-updated">Last updated: 2 minutes ago</span>
+          <div class="dashboard-actions">
+            <button class="dashboard-btn">⚙️ Settings</button>
+            <button class="dashboard-btn">📤 Share</button>
+            <button class="dashboard-btn">🔄 Refresh</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Dashboard Grid -->
+    <main class="dashboard-grid">
+      <!-- Main Chart Widget with Path Hints -->
+      <section class="chart-widget main-widget">
+        <div class="widget-header">
+          <div class="widget-title">Account Pipeline Values</div>
+          <div class="widget-controls">
+            <div class="path-indicator">
+              <span class="path-badge">🛤️ Analysis Path Active</span>
+              <span class="path-name">"Pipeline Deep Dive" by Sarah M.</span>
+            </div>
+            <button class="widget-menu">⋯</button>
+          </div>
+        </div>
+        
+        <div class="chart-content">
+          <!-- Main chart visualization -->
+          <svg viewBox="0 0 600 300" class="main-chart">
+            <!-- Background -->
+            <rect x="0" y="0" width="600" height="300" fill="#ffffff" stroke="#e5e7eb"/>
+            
+            <!-- Y-axis -->
+            <line x1="50" y1="50" x2="50" y2="250" stroke="#6b7280" stroke-width="1"/>
+            <text x="45" y="55" text-anchor="end" font-size="10" fill="#6b7280">€300k</text>
+            <text x="45" y="100" text-anchor="end" font-size="10" fill="#6b7280">€240k</text>
+            <text x="45" y="150" text-anchor="end" font-size="10" fill="#6b7280">€180k</text>
+            <text x="45" y="200" text-anchor="end" font-size="10" fill="#6b7280">€120k</text>
+            <text x="45" y="245" text-anchor="end" font-size="10" fill="#6b7280">€60k</text>
+            
+            <!-- X-axis -->
+            <line x1="50" y1="250" x2="550" y2="250" stroke="#6b7280" stroke-width="1"/>
+            
+            <!-- Chart bars for accounts -->
+            <g class="chart-bars">
+              <!-- Account bars with different heights -->
+              <rect x="70" y="80" width="30" height="170" fill="#3b82f6" rx="2" class="chart-bar" data-account="TechCorp"/>
+              <rect x="110" y="120" width="30" height="130" fill="#3b82f6" rx="2" class="chart-bar" data-account="RetailPlus"/>
+              <rect x="150" y="60" width="30" height="190" fill="#3b82f6" rx="2" class="chart-bar" data-account="MegaCorp"/>
+              <rect x="190" y="140" width="30" height="110" fill="#3b82f6" rx="2" class="chart-bar" data-account="StartupXYZ"/>
+              <rect x="230" y="100" width="30" height="150" fill="#3b82f6" rx="2" class="chart-bar" data-account="Enterprise"/>
+              <rect x="270" y="180" width="30" height="70" fill="#3b82f6" rx="2" class="chart-bar" data-account="LocalBiz"/>
+              <rect x="310" y="90" width="30" height="160" fill="#3b82f6" rx="2" class="chart-bar" data-account="GlobalInc"/>
+              <rect x="350" y="160" width="30" height="90" fill="#3b82f6" rx="2" class="chart-bar" data-account="SmallCo"/>
+              <rect x="390" y="70" width="30" height="180" fill="#3b82f6" rx="2" class="chart-bar" data-account="BigClient"/>
+              <rect x="430" y="130" width="30" height="120" fill="#3b82f6" rx="2" class="chart-bar" data-account="MidSize"/>
+              <rect x="470" y="110" width="30" height="140" fill="#3b82f6" rx="2" class="chart-bar" data-account="NewClient"/>
+              <rect x="510" y="200" width="30" height="50" fill="#3b82f6" rx="2" class="chart-bar" data-account="TinyCorp"/>
+            </g>
+            
+            <!-- Account labels -->
+            <g class="account-labels">
+              <text x="85" y="265" text-anchor="middle" font-size="8" fill="#6b7280" transform="rotate(-45, 85, 265)">TechCorp</text>
+              <text x="125" y="265" text-anchor="middle" font-size="8" fill="#6b7280" transform="rotate(-45, 125, 265)">RetailPlus</text>
+              <text x="165" y="265" text-anchor="middle" font-size="8" fill="#6b7280" transform="rotate(-45, 165, 265)">MegaCorp</text>
+              <text x="205" y="265" text-anchor="middle" font-size="8" fill="#6b7280" transform="rotate(-45, 205, 265)">StartupXYZ</text>
+              <text x="245" y="265" text-anchor="middle" font-size="8" fill="#6b7280" transform="rotate(-45, 245, 265)">Enterprise</text>
+              <text x="285" y="265" text-anchor="middle" font-size="8" fill="#6b7280" transform="rotate(-45, 285, 265)">LocalBiz</text>
+              <text x="325" y="265" text-anchor="middle" font-size="8" fill="#6b7280" transform="rotate(-45, 325, 265)">GlobalInc</text>
+              <text x="365" y="265" text-anchor="middle" font-size="8" fill="#6b7280" transform="rotate(-45, 365, 265)">SmallCo</text>
+              <text x="405" y="265" text-anchor="middle" font-size="8" fill="#6b7280" transform="rotate(-45, 405, 265)">BigClient</text>
+              <text x="445" y="265" text-anchor="middle" font-size="8" fill="#6b7280" transform="rotate(-45, 445, 265)">MidSize</text>
+              <text x="485" y="265" text-anchor="middle" font-size="8" fill="#6b7280" transform="rotate(-45, 485, 265)">NewClient</text>
+              <text x="525" y="265" text-anchor="middle" font-size="8" fill="#6b7280" transform="rotate(-45, 525, 265)">TinyCorp</text>
+            </g>
+            
+            <!-- Analysis Path Visual Hints -->
+            <!-- Hover highlight on MegaCorp bar (highest value) -->
+            <rect x="148" y="58" width="34" height="194" fill="none" stroke="#10a5a5" stroke-width="2" stroke-dasharray="4,2" rx="3" class="path-highlight"/>
+            
+            <!-- Path hint bubble on MegaCorp -->
+            <g class="path-hint" transform="translate(165, 45)">
+              <rect x="-40" y="-18" width="80" height="36" fill="#10a5a5" rx="8" opacity="0.95"/>
+              <text x="0" y="-8" text-anchor="middle" font-size="10" fill="white" font-weight="600">🧭 Click to drill down</text>
+              <text x="0" y="2" text-anchor="middle" font-size="9" fill="white">Next: Account Deep Dive</text>
+              <text x="0" y="12" text-anchor="middle" font-size="8" fill="white" opacity="0.8">€245k pipeline</text>
+              <!-- Arrow pointing to bar -->
+              <polygon points="0,18 -6,12 6,12" fill="#10a5a5"/>
+            </g>
+            
+            <!-- Subtle path indicators on other high-value bars -->
+            <circle cx="85" cy="75" r="8" fill="#10a5a5" opacity="0.7" class="path-dot"/>
+            <text x="85" y="78" text-anchor="middle" font-size="10" fill="white">🧭</text>
+            
+            <circle cx="405" cy="65" r="8" fill="#10a5a5" opacity="0.7" class="path-dot"/>
+            <text x="405" y="68" text-anchor="middle" font-size="10" fill="white">🧭</text>
+            
+            <!-- Path progression indicator in corner -->
+            <g class="path-progress" transform="translate(480, 30)">
+              <rect x="0" y="0" width="100" height="50" fill="white" stroke="#e5e7eb" rx="8" opacity="0.95"/>
+              <text x="50" y="15" text-anchor="middle" font-size="9" fill="#374151" font-weight="600">Analysis Path Progress</text>
+              <text x="50" y="26" text-anchor="middle" font-size="11" fill="#10a5a5" font-weight="700">Step 1 of 4</text>
+              <rect x="15" y="32" width="15" height="4" fill="#10a5a5" rx="2"/>
+              <rect x="32" y="32" width="15" height="4" fill="#e5e7eb" rx="2"/>
+              <rect x="49" y="32" width="15" height="4" fill="#e5e7eb" rx="2"/>
+              <rect x="66" y="32" width="15" height="4" fill="#e5e7eb" rx="2"/>
+              <text x="50" y="44" text-anchor="middle" font-size="8" fill="#6b7280">Account Overview</text>
+            </g>
+            
+            <!-- Path mode toggle in top left -->
+            <g class="path-toggle" transform="translate(20, 20)">
+              <rect x="0" y="0" width="120" height="28" fill="white" stroke="#e5e7eb" rx="6" opacity="0.95"/>
+              <text x="10" y="12" font-size="8" fill="#6b7280">Analysis Mode:</text>
+              <text x="10" y="22" font-size="9" fill="#10a5a5" font-weight="600">🛤️ Guided Path</text>
+              <text x="90" y="16" font-size="12" fill="#6b7280" cursor="pointer">⚙️</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="widget-footer">
+          <div class="path-actions">
+            <button class="widget-action primary">
+              <span class="action-icon">🧭</span>
+              Follow Analysis Path
+            </button>
+            <button class="widget-action secondary">
+              <span class="action-icon">🔍</span>
+              Explore Freely
+            </button>
+            <button class="widget-action ghost">
+              <span class="action-icon">⚙️</span>
+              Path Settings
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sidebar Widgets -->
+      <aside class="sidebar-widgets">
+        <!-- Analysis Path Guide -->
+        <div class="guide-widget">
+          <div class="widget-header">
+            <div class="widget-title">🛤️ Analysis Path Guide</div>
+          </div>
+          <div class="guide-content">
+            <div class="path-step current">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <div class="step-title">Account Overview</div>
+                <div class="step-status">📍 Current Step</div>
+              </div>
+            </div>
+            <div class="path-step upcoming">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <div class="step-title">Top Account Deep Dive</div>
+                <div class="step-status">⏳ Next</div>
+              </div>
+            </div>
+            <div class="path-step upcoming">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <div class="step-title">Pipeline Stage Analysis</div>
+                <div class="step-status">⏳ Upcoming</div>
+              </div>
+            </div>
+            <div class="path-step upcoming">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <div class="step-title">Action Priorities</div>
+                <div class="step-status">⏳ Final</div>
+              </div>
+            </div>
+          </div>
+          <div class="guide-footer">
+            <div class="path-creator">
+              <span class="creator-label">Path by:</span>
+              <span class="creator-name">Sarah M. (Sales Ops)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Insights Widget -->
+        <div class="insights-widget">
+          <div class="widget-header">
+            <div class="widget-title">💡 Key Insights</div>
+          </div>
+          <div class="insight-list">
+            <div class="insight-item">
+              <div class="insight-icon">🎯</div>
+              <div class="insight-text">MegaCorp shows highest pipeline value (€245k)</div>
+            </div>
+            <div class="insight-item">
+              <div class="insight-icon">📈</div>
+              <div class="insight-text">Top 3 accounts represent 62% of total pipeline</div>
+            </div>
+            <div class="insight-item hint">
+              <div class="insight-icon">🧭</div>
+              <div class="insight-text">Click highlighted accounts to start detailed analysis</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- AutoBot Assistant (minimized) -->
+    <div class="autobot-mini">
+      <button class="autobot-toggle">
+        <span class="bot-icon">🤖</span>
+        <span class="bot-status">AutoBot Ready</span>
+      </button>
+    </div>
+  </body>
+</html>

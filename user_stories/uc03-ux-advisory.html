@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>UC3 — UX Advisory · dm Standards Integration</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="chat-header">
+        <div class="badge">AUTO DASHBOARD</div>
+        <div class="toolbar">
+          <button class="icon-btn" title="Minimize">—</button>
+          <button class="icon-btn" title="Pin">📌</button>
+        </div>
+      </header>
+
+      <main class="chat-area" aria-label="Chat conversation">
+        <div class="message user" aria-label="User">
+          <div class="bubble user-bubble">
+            Review Visual01 UX using our corporate style guide and accessibility standards
+          </div>
+          <div class="meta">You · 2 min ago</div>
+        </div>
+
+        <div class="message bot" aria-label="AutoBot">
+          <div class="card bot-card">
+            <div class="card-body">
+              <p class="lead">I've analyzed Visual01 against your corporate style guide and best practices. Here's the comprehensive UX review:</p>
+              
+              <div class="data-sources">
+                <h4>📚 External Data Sources Loaded:</h4>
+                <div class="source-list">
+                  <div class="source-item">
+                    <span class="source-icon">📋</span>
+                    <span class="source-name"><strong>dm Standards für Berichtsdesign</strong> v2.4</span>
+                    <span class="source-status">✓ Loaded</span>
+                  </div>
+                  <div class="source-item">
+                    <span class="source-icon">🌐</span>
+                    <span class="source-name">WCAG 2.1 AA Standards</span>
+                    <span class="source-status">✓ Active</span>
+                  </div>
+                  <div class="source-item">
+                    <span class="source-icon">📖</span>
+                    <span class="source-name">Data Visualization Best Practices</span>
+                    <span class="source-status">✓ Referenced</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ux-scorecard">
+                <h4>🎯 Visual01 UX Score: 74/100</h4>
+                <div class="score-breakdown">
+                  <div class="score-category">
+                    <div class="category-header">
+                      <span class="category-name">Color Contrast</span>
+                      <span class="category-score good">85/100</span>
+                    </div>
+                    <div class="category-bar">
+                      <div class="score-fill" style="width: 85%"></div>
+                    </div>
+                  </div>
+                  
+                  <div class="score-category">
+                    <div class="category-header">
+                      <span class="category-name">Typography</span>
+                      <span class="category-score warning">68/100</span>
+                    </div>
+                    <div class="category-bar">
+                      <div class="score-fill warning" style="width: 68%"></div>
+                    </div>
+                  </div>
+                  
+                  <div class="score-category">
+                    <div class="category-header">
+                      <span class="category-name">Accessibility</span>
+                      <span class="category-score error">52/100</span>
+                    </div>
+                    <div class="category-bar">
+                      <div class="score-fill error" style="width: 52%"></div>
+                    </div>
+                  </div>
+                  
+                  <div class="score-category">
+                    <div class="category-header">
+                      <span class="category-name">Brand Compliance</span>
+                      <span class="category-score good">91/100</span>
+                    </div>
+                    <div class="category-bar">
+                      <div class="score-fill" style="width: 91%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="fix-recommendations">
+                <h4>🔧 Priority Fix Recommendations:</h4>
+                <div class="fix-list">
+                  <div class="fix-item critical">
+                    <div class="fix-header">
+                      <span class="fix-priority">HIGH</span>
+                      <span class="fix-title">Add Alt Text for Screen Readers</span>
+                      <button class="fix-btn primary">Auto-Fix</button>
+                    </div>
+                    <div class="fix-desc">Chart missing accessibility labels. WCAG 2.1 AA requires descriptive alt text.</div>
+                    <div class="fix-source">Source: WCAG Guidelines § 1.1.1</div>
+                  </div>
+
+                  <div class="fix-item warning">
+                    <div class="fix-header">
+                      <span class="fix-priority">MEDIUM</span>
+                      <span class="fix-title">Increase Font Size for Better Readability</span>
+                      <button class="fix-btn secondary">Apply</button>
+                    </div>
+                    <div class="fix-desc">Current: 11px. <strong>dm Standards</strong>: 12px minimum for data labels.</div>
+                    <div class="fix-source">Source: dm Standards für Berichtsdesign § 3.2</div>
+                  </div>
+
+                  <div class="fix-item info">
+                    <div class="fix-header">
+                      <span class="fix-priority">LOW</span>
+                      <span class="fix-title">Optimize Color Palette Consistency</span>
+                      <button class="fix-btn secondary">Review</button>
+                    </div>
+                    <div class="fix-desc">Consider using primary brand colors for better consistency.</div>
+                    <div class="fix-source">Source: Best Practices Database</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="multi-level-context">
+                <h4>🔍 Multi-Level Analysis Available:</h4>
+                <div class="context-options">
+                  <button class="context-btn active">
+                    <span class="context-icon">📊</span>
+                    <span class="context-label">Visual Level</span>
+                    <span class="context-desc">Current analysis</span>
+                  </button>
+                  <button class="context-btn">
+                    <span class="context-icon">📄</span>
+                    <span class="context-label">Page Level</span>
+                    <span class="context-desc">Layout & navigation</span>
+                  </button>
+                  <button class="context-btn">
+                    <span class="context-icon">🏠</span>
+                    <span class="context-label">Dashboard Level</span>
+                    <span class="context-desc">Overall UX flow</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="custom-prompts">
+                <h4>⚙️ Custom System Prompts:</h4>
+                <div class="prompt-config">
+                  <div class="prompt-item">
+                    <span class="prompt-label">Industry Focus:</span>
+                    <span class="prompt-value">Financial Services</span>
+                  </div>
+                  <div class="prompt-item">
+                    <span class="prompt-label">Compliance Level:</span>
+                    <span class="prompt-value">Enterprise (Strict)</span>
+                  </div>
+                  <div class="prompt-item">
+                    <span class="prompt-label">User Expertise:</span>
+                    <span class="prompt-value">Business Analyst</span>
+                  </div>
+                </div>
+              </div>
+
+              <button class="fab" title="Generate UX Report">📋</button>
+            </div>
+          </div>
+          <div class="meta">AutoBot · 1 min ago</div>
+        </div>
+
+        <section class="suggestions" aria-label="Related Suggestions">
+          <div class="suggestions-header">UX Optimization</div>
+          <div class="suggestion-list">
+            <button class="sugg"><span class="ico">📄</span> Analyze entire page UX structure</button>
+            <button class="sugg"><span class="ico">🎨</span> Review color accessibility across dashboard</button>
+            <button class="sugg"><span class="ico">📱</span> Check mobile responsiveness</button>
+            <button class="sugg ghost"><span class="ico">✨</span> AI-powered UX recommendations</button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="composer" aria-label="Input area">
+        <div class="input-wrap">
+          <button class="icon-btn" title="Attach">📎</button>
+          <input type="text" placeholder="Ask about UX improvements, accessibility, or style guide compliance..." />
+          <button class="send">Send</button>
+        </div>
+        <div class="hint">UX analysis powered by corporate style guides, accessibility standards, and best practices.</div>
+      </footer>
+    </div>
+  </body>
+</html>

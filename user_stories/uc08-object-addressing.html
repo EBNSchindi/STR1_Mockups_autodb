@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UC8 — Object Addressing · @ Symbol Navigation</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="chat-header">
+        <div class="badge">AUTO DASHBOARD</div>
+        <div class="toolbar">
+          <button class="icon-btn" title="Minimize">—</button>
+          <button class="icon-btn" title="Pin">📌</button>
+        </div>
+      </header>
+
+      <main class="chat-area" aria-label="Chat conversation">
+        <div class="message user" aria-label="User">
+          <div class="bubble user-bubble">
+            @v
+          </div>
+          <div class="meta">You · typing...</div>
+        </div>
+
+        <div class="message bot" aria-label="AutoBot">
+          <div class="card bot-card">
+            <div class="card-body">
+              <p class="lead">I detected you're using object addressing. Here are the available visualizations:</p>
+              
+              <div class="object-selector">
+                <h4>📊 Available Visualizations:</h4>
+                <div class="object-list">
+                  <button class="object-item recommended">
+                    <div class="object-header">
+                      <span class="object-id">@visual01</span>
+                      <span class="object-type">Chart</span>
+                      <span class="object-badge">ACTIVE</span>
+                    </div>
+                    <div class="object-title">Pipeline Overview</div>
+                    <div class="object-desc">Bar chart showing pipeline distribution by account</div>
+                    <div class="object-preview">
+                      <svg viewBox="0 0 80 40" class="mini-preview">
+                        <rect x="0" y="0" width="80" height="40" fill="#f8fafc" stroke="#e5e7eb"/>
+                        <g fill="#3b82f6">
+                          <rect x="10" y="20" width="8" height="15" rx="1"/>
+                          <rect x="25" y="15" width="8" height="20" rx="1"/>
+                          <rect x="40" y="25" width="8" height="10" rx="1"/>
+                          <rect x="55" y="10" width="8" height="25" rx="1"/>
+                        </g>
+                      </svg>
+                    </div>
+                  </button>
+
+                  <button class="object-item">
+                    <div class="object-header">
+                      <span class="object-id">@visual02</span>
+                      <span class="object-type">Chart</span>
+                    </div>
+                    <div class="object-title">Revenue Trend Analysis</div>
+                    <div class="object-desc">Line chart with year-over-year comparison</div>
+                    <div class="object-preview">
+                      <svg viewBox="0 0 80 40" class="mini-preview">
+                        <rect x="0" y="0" width="80" height="40" fill="#f8fafc" stroke="#e5e7eb"/>
+                        <path d="M 10 30 L 25 25 L 40 20 L 55 15 L 70 10" stroke="#10a5a5" stroke-width="2" fill="none"/>
+                        <g fill="#10a5a5">
+                          <circle cx="10" cy="30" r="2"/>
+                          <circle cx="25" cy="25" r="2"/>
+                          <circle cx="40" cy="20" r="2"/>
+                          <circle cx="55" cy="15" r="2"/>
+                          <circle cx="70" cy="10" r="2"/>
+                        </g>
+                      </svg>
+                    </div>
+                  </button>
+
+                  <button class="object-item">
+                    <div class="object-header">
+                      <span class="object-id">@visual03</span>
+                      <span class="object-type">Table</span>
+                    </div>
+                    <div class="object-title">Account Performance Table</div>
+                    <div class="object-desc">Detailed breakdown with KPIs and metrics</div>
+                    <div class="object-preview">
+                      <svg viewBox="0 0 80 40" class="mini-preview">
+                        <rect x="0" y="0" width="80" height="40" fill="#f8fafc" stroke="#e5e7eb"/>
+                        <g stroke="#e5e7eb" stroke-width="1">
+                          <line x1="5" y1="10" x2="75" y2="10"/>
+                          <line x1="5" y1="18" x2="75" y2="18"/>
+                          <line x1="5" y1="26" x2="75" y2="26"/>
+                          <line x1="5" y1="34" x2="75" y2="34"/>
+                          <line x1="25" y1="5" x2="25" y2="35"/>
+                          <line x1="55" y1="5" x2="55" y2="35"/>
+                        </g>
+                      </svg>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+              <div class="addressing-help">
+                <h4>💡 Object Addressing Guide:</h4>
+                <div class="help-grid">
+                  <div class="help-item">
+                    <span class="help-symbol">@visual01</span>
+                    <span class="help-desc">Target specific chart or visualization</span>
+                  </div>
+                  <div class="help-item">
+                    <span class="help-symbol">@filter01</span>
+                    <span class="help-desc">Reference dashboard filters</span>
+                  </div>
+                  <div class="help-item">
+                    <span class="help-symbol">@page01</span>
+                    <span class="help-desc">Navigate to specific pages</span>
+                  </div>
+                  <div class="help-item">
+                    <span class="help-symbol">#insights</span>
+                    <span class="help-desc">Access predefined insight categories</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="quick-actions">
+                <h4>⚡ Quick Actions with @visual01:</h4>
+                <div class="action-suggestions">
+                  <button class="quick-action">@visual01 apply dark theme</button>
+                  <button class="quick-action">@visual01 add drill path</button>
+                  <button class="quick-action">@visual01 check CI compliance</button>
+                  <button class="quick-action">@visual01 export data</button>
+                </div>
+              </div>
+
+              <button class="fab" title="Copy Object ID">📋</button>
+            </div>
+          </div>
+          <div class="meta">AutoBot · instant response</div>
+        </div>
+
+        <section class="suggestions" aria-label="Related Suggestions">
+          <div class="suggestions-header">Object Navigation</div>
+          <div class="suggestion-list">
+            <button class="sugg"><span class="ico">🎯</span> Show all available filters (@filter)</button>
+            <button class="sugg"><span class="ico">📄</span> List dashboard pages (@page)</button>
+            <button class="sugg"><span class="ico">🔍</span> Search objects by name</button>
+            <button class="sugg ghost"><span class="ico">✨</span> Smart object recommendations</button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="composer" aria-label="Input area">
+        <div class="input-wrap">
+          <button class="icon-btn" title="Attach">📎</button>
+          <div class="smart-input">
+            <input type="text" placeholder="Try @visual01, @filter01, or #insights..." value="@v" />
+            <div class="autocomplete-popup">
+              <div class="autocomplete-header">Available Objects:</div>
+              <div class="autocomplete-item active">@visual01 - Pipeline Overview</div>
+              <div class="autocomplete-item">@visual02 - Revenue Trend</div>
+              <div class="autocomplete-item">@visual03 - Account Table</div>
+            </div>
+          </div>
+          <button class="send">Send</button>
+        </div>
+        <div class="hint">Use @ to reference dashboard objects or # for insight categories. Auto-complete available.</div>
+      </footer>
+    </div>
+  </body>
+</html>

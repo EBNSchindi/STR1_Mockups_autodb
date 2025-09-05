@@ -1,0 +1,27 @@
+/* Shared design tokens and base typography for AutoDashboard mockups */
+:root {
+  --bg: #f6f7fb;
+  --panel: #ffffff;
+  --border: #e5e7eb;
+  --text: #111827;
+  --muted: #6b7280;
+  --brand: #2563eb;
+  --accent: #10a5a5;
+  --warning: #f59e0b;
+  --success: #16a34a;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans";
+}
+
+/* Common header badge + toolbar primitives (kept minimal to avoid conflicts) */
+.chat-header { display: flex; align-items: center; justify-content: space-between; }
+.badge { font-size: 12px; font-weight: 700; letter-spacing: .04em; }
+.toolbar { display: flex; gap: 6px; }
+.icon-btn { cursor: pointer; }

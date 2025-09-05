@@ -1,0 +1,3 @@
+# Ignore temporary debug screenshots
+screenshots_debug/*
+!screenshots_debug/.gitkeep

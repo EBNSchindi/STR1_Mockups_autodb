@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UC5 — Path Builder · Builder Experience</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="chat-header">
+        <div class="badge">AUTO DASHBOARD</div>
+        <div class="toolbar">
+          <button class="icon-btn" title="Minimize">—</button>
+          <button class="icon-btn" title="Pin">📌</button>
+        </div>
+      </header>
+
+      <main class="chat-area" aria-label="Chat conversation">
+        <div class="message user" aria-label="User">
+          <div class="bubble user-bubble">
+            Create a drill path for Visual01 pipeline analysis
+          </div>
+          <div class="meta">You · 2 min ago</div>
+        </div>
+
+        <div class="message bot" aria-label="AutoBot">
+          <div class="card bot-card">
+            <div class="card-body">
+              <p class="lead">I'll help you create a guided analysis path for Visual01. Here's my recommended drill-down sequence:</p>
+              
+              <div class="visual-reference">
+                <div class="visual-header">
+                  <span class="visual-icon">📊</span>
+                  <span class="visual-title">Visual01: Pipeline Overview</span>
+                  <span class="visual-status">Ready for Path Design</span>
+                </div>
+              </div>
+
+              <div class="path-builder">
+                <h4>🛤️ Suggested Analysis Path:</h4>
+                <div class="path-flow">
+                  <div class="path-step completed">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                      <div class="step-title">Pipeline Overview</div>
+                      <div class="step-desc">Starting overview – all accounts</div>
+                      <div class="step-action"><span class="chip">Aggregated</span></div>
+                    </div>
+                  </div>
+
+                  <div class="path-step active current">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                      <div class="step-title">By Account</div>
+                      <div class="step-desc">Show individual account performance</div>
+                      <div class="step-action"><span class="chip">Selected: CHS</span></div>
+                    </div>
+                  </div>
+
+                  <div class="path-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                      <div class="step-title">By Stage</div>
+                      <div class="step-desc">Pipeline stages for selected account</div>
+                      <div class="step-action"><span class="chip">Stage: Negotiation</span></div>
+                    </div>
+                  </div>
+
+                  <div class="path-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                      <div class="step-title">Opportunity Details</div>
+                      <div class="step-desc">Individual opportunities and values</div>
+                      <div class="step-action"><span class="chip ghost">Top 5 by amount</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="path-controls">
+                <h4>⚙️ Path Configuration:</h4>
+                <div class="control-group">
+                  <label class="control-label">
+                    <input type="checkbox" checked>
+                    <span>Auto-suggest next step</span>
+                  </label>
+                  <label class="control-label">
+                    <input type="checkbox" checked>
+                    <span>Show breadcrumb navigation</span>
+                  </label>
+                  <label class="control-label">
+                    <input type="checkbox">
+                    <span>Enable alternative paths</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="path-preview">
+                <h4>👁️ Consumer Preview:</h4>
+                <div class="preview-container">
+                  <div class="preview-play" role="img" aria-label="Play analysis path">
+                    <div class="play-button" title="Play Analysis Path">▶</div>
+                    <div class="play-label">Play analysis path</div>
+                  </div>
+                  <div class="preview-note">Consumers start the guided path via a play button.</div>
+                </div>
+              </div>
+
+              <div class="path-actions">
+                <button class="action-btn primary">Apply Path to Visual01</button>
+                <button class="action-btn secondary">Test Preview</button>
+                <button class="action-btn secondary">Add Alternative Path</button>
+              </div>
+
+              <button class="fab" title="Save Path Configuration">💾</button>
+            </div>
+          </div>
+          <div class="meta">AutoBot · 1 min ago</div>
+        </div>
+
+        <section class="suggestions" aria-label="Related Suggestions">
+          <div class="suggestions-header">Related Actions</div>
+          <div class="suggestion-list">
+            <button class="sugg"><span class="ico">🎯</span> Create path for Visual02 (Revenue Analysis)</button>
+            <button class="sugg"><span class="ico">🔄</span> Copy this path to similar visualizations</button>
+            <button class="sugg"><span class="ico">📋</span> View all configured analysis paths</button>
+            <button class="sugg ghost"><span class="ico">✨</span> AI-suggested alternative paths</button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="composer" aria-label="Input area">
+        <div class="input-wrap">
+          <button class="icon-btn" title="Attach">📎</button>
+          <input type="text" placeholder="Configure analysis paths, drill-downs, or exploration flows..." />
+          <button class="send">Send</button>
+        </div>
+        <div class="hint">Build guided exploration paths to help users discover insights step by step.</div>
+      </footer>
+    </div>
+  </body>
+</html>

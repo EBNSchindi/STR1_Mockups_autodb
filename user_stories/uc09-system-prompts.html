@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UC9 — System Prompts · Contextual AI Configuration</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="chat-header">
+        <div class="badge">AUTO DASHBOARD</div>
+        <div class="toolbar">
+          <button class="icon-btn" title="Minimize">—</button>
+          <button class="icon-btn" title="Pin">📌</button>
+        </div>
+      </header>
+
+      <main class="chat-area" aria-label="Chat conversation">
+        <div class="message user" aria-label="User">
+          <div class="bubble user-bubble">
+            Help me create a financial dashboard for quarterly earnings analysis
+          </div>
+          <div class="meta">You · 1 min ago</div>
+        </div>
+
+        <div class="message bot" aria-label="AutoBot">
+          <div class="card bot-card">
+            <div class="card-body">
+              <p class="lead">I'd be happy to help you create a quarterly earnings dashboard! To provide the most relevant guidance, you can add custom system prompts that will optimize my responses for your specific needs:</p>
+              
+              <div class="custom-prompt-manager">
+                <h4>⚙️ Custom System Prompts:</h4>
+                
+                <div class="active-prompts">
+                  <div class="prompt-header">
+                    <span class="prompt-title">Active Custom Prompts:</span>
+                    <button class="edit-prompts-btn">
+                      <span class="btn-icon">✏️</span>
+                      Edit Prompts
+                    </button>
+                  </div>
+                  
+                  <div class="prompt-list">
+                    <div class="custom-prompt-item">
+                      <div class="prompt-content">
+                        <div class="prompt-label">dm Financial Context</div>
+                        <div class="prompt-text">"Focus on dm drogerie's financial KPIs: revenue per store, customer acquisition costs, seasonal trends. Always consider German retail regulations and GAAP compliance."</div>
+                      </div>
+                      <div class="prompt-actions">
+                        <button class="prompt-action edit" title="Edit">✏️</button>
+                        <button class="prompt-action remove" title="Remove">✕</button>
+                      </div>
+                    </div>
+                    
+                    <div class="custom-prompt-item">
+                      <div class="prompt-content">
+                        <div class="prompt-label">Executive Communication</div>
+                        <div class="prompt-text">"Provide executive-level summaries with strategic recommendations. Focus on key insights, avoid technical details. Include actionable next steps."</div>
+                      </div>
+                      <div class="prompt-actions">
+                        <button class="prompt-action edit" title="Edit">✏️</button>
+                        <button class="prompt-action remove" title="Remove">✕</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="add-prompt-section">
+                  <button class="add-prompt-btn">
+                    <span class="btn-icon">➕</span>
+                    Add Custom System Prompt
+                  </button>
+                </div>
+
+                <div class="prompt-editor hidden">
+                  <div class="editor-header">
+                    <h4>✏️ Create Custom System Prompt</h4>
+                    <button class="close-editor">✕</button>
+                  </div>
+                  
+                  <div class="editor-form">
+                    <div class="form-group">
+                      <label for="prompt-name">Prompt Name:</label>
+                      <input type="text" id="prompt-name" placeholder="e.g., 'Healthcare Compliance Focus'" />
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="prompt-description">Description (optional):</label>
+                      <input type="text" id="prompt-description" placeholder="Brief description of when to use this prompt" />
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="prompt-content">System Prompt Content:</label>
+                      <textarea id="prompt-content" rows="4" placeholder="Define the context, focus areas, constraints, and guidelines for AI responses...
+
+Example: 'You are assisting with retail analytics for a German drugstore chain. Focus on store performance metrics, customer behavior, and seasonal trends. Always consider German retail regulations and provide actionable insights for store managers.'"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label>
+                        <input type="checkbox" id="auto-activate" />
+                        Auto-activate for similar requests
+                      </label>
+                    </div>
+                    
+                    <div class="editor-actions">
+                      <button class="save-prompt-btn primary">
+                        <span class="btn-icon">�</span>
+                        Save Prompt
+                      </button>
+                      <button class="cancel-edit-btn secondary">Cancel</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="prompt-suggestions">
+                  <h4>� Quick Prompt Ideas:</h4>
+                  <div class="suggestion-chips">
+                    <button class="suggestion-chip" data-prompt="Industry: Retail & E-commerce focus with seasonal analysis">🛒 Retail Focus</button>
+                    <button class="suggestion-chip" data-prompt="Role: Technical implementation details and API guidance">⚙️ Technical Details</button>
+                    <button class="suggestion-chip" data-prompt="Compliance: Always consider GDPR, data privacy, and German regulations">🔒 Compliance First</button>
+                    <button class="suggestion-chip" data-prompt="Audience: Board-level presentations with strategic insights only">👔 Board Ready</button>
+                  </div>
+                </div>
+
+                <div class="context-preview">
+                  <h4>🎯 Current AI Context:</h4>
+                  <div class="context-summary">
+                    <div class="context-description">
+                      With your custom prompts active, I'll provide <strong>dm-specific financial guidance</strong> with <strong>executive-level communication</strong>, focusing on retail KPIs, regulatory compliance, and strategic recommendations suitable for leadership presentations.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="context-benefits">
+                <h4>✨ With your custom prompts, I can provide:</h4>
+                <ul class="benefit-list">
+                  <li>� <strong>dm-specific metrics</strong> (revenue per store, seasonal trends, customer acquisition)</li>
+                  <li>📊 <strong>Executive summaries</strong> (strategic insights, actionable recommendations)</li>
+                  <li>⚖️ <strong>Compliance awareness</strong> (German retail regulations, GAAP standards)</li>
+                  <li>� <strong>Contextual relevance</strong> (tailored to your specific business needs)</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+          <div class="meta">AutoBot · 30s ago</div>
+        </div>
+
+        <section class="suggestions" aria-label="Related Suggestions">
+          <div class="suggestions-header">Custom System Prompts</div>
+          <div class="suggestion-list">
+            <button class="sugg"><span class="ico">➕</span> Create new custom prompt</button>
+            <button class="sugg"><span class="ico">✏️</span> Edit existing prompts</button>
+            <button class="sugg"><span class="ico">👥</span> Share prompts with team</button>
+            <button class="sugg ghost"><span class="ico">🤖</span> AI-suggested prompt optimization</button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="composer" aria-label="Input area">
+        <div class="input-wrap">
+          <button class="icon-btn prompt-trigger active" title="Custom System Prompts Active">⚙️</button>
+          <button class="icon-btn" title="Attach">📎</button>
+          <input type="text" placeholder="Ask about your financial dashboard with custom dm context active..." />
+          <button class="send">Send</button>
+        </div>
+        <div class="hint">✨ Custom prompts active: dm Financial Context • Executive Communication</div>
+      </footer>
+    </div>
+  </body>
+</html>

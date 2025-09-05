@@ -1,0 +1,419 @@
+HINWEIS (Archiv): Dieses Dokument ist ungekürzt und kann veraltete Inhalte enthalten. 
+Kanonische Quelle für die aktuellen Use Cases ist `user_stories/` sowie die aktualisierte `PROJECT_SCOPE.md`.
+
+Danke für die klare Zielschärfung. Kurzfazit des Checks vorab:
+
+Ja, die bisherige Fassung deckt Vision, Use‑Cases und (erste) User Stories ab.
+
+Aber: Für ein Vendor‑Gespräch mit Strategy One fehlen noch explizite Produkt‑Asks/Entscheidungen, ein klarer Pilot‑Zuschnitt und eine konsolidierte User‑Story‑Übersicht mit Akzeptanzkriterien.
+
+Zudem war die Technik an ein paar Stellen zu detailliert (Schemas/Beispiele). Für den Pitch sollten wir sie auf Hohe‑Flughöhe heben und die Lösungsausgestaltung bewusst bei Strategy One verorten.
+
+
+Unten erhältst du eine überarbeitete, vendor‑taugliche Version des Decks:
+
+Auf jeder Folie: Folientext (kurz) + Notes/Hintergrund (ausführlicher).
+
+Technik bleibt high‑level (keine Implementationsdetails, keine JSON/YAML).
+
+Neu: klare „Was wir von Strategy One brauchen“-Folien, Pilot‑Charter, User‑Story‑Katalog und Nicht‑Ziele/Constraints.
+
+
+
+---
+
+0. Storyline (für dich)
+
+Problem → Vision (Builder‑First) → Use‑Cases (Nutzen) → User Stories (AK-Kriterien) → Vendor‑Asks & Entscheidung → Pilot & KPIs → Roadmap → Risiken/Constraints → Abschluss & Next Steps.
+
+
+---
+
+Slide 1 — Titel & Claim
+
+Folientext
+AutoDashboard für Builder
+Guided Reporting · CI‑Konsistenz · Data Literacy – by Design
+
+Notes/Hintergrund
+Wir sprechen Strategy One an, um AutoDashboard gezielt weiterzuentwickeln: für Power‑User (Ersteller:innen). Ziel ist geführtes Bauen, planbare Exploration und konsistente CI – ohne Overhead für Endnutzer.
+
+
+---
+
+Slide 2 — Ziel & Outcome des Vorhabens
+
+Folientext
+
+Ziel: AutoDashboard entlang unserer Builder‑Bedürfnisse weiterentwickeln
+
+Outcome: schneller bauen, verständlicher leiten, CI‑sicher veröffentlichen
+
+Weg: Use‑Cases + User Stories + Pilot in Co‑Creation
+
+
+Notes/Hintergrund
+Wir bringen konkrete Anwendungsfälle und User Stories mit. Strategy One liefert die Produktsicht & technische Umsetzung; wir stellen Daten, CI und Akzeptanzkriterien.
+
+
+---
+
+Slide 3 — Zielgruppe & Abgrenzung
+
+Folientext
+Fokus: Dashboard‑Ersteller:innen (Authoring)
+Konsument:innen profitieren sekundär (geführte Exploration)
+
+Notes/Hintergrund
+Alle Funktionen sind Builder‑First: Analysepfade, Fragen, UX‑Review und CI‑Presets werden im Erstellprozess verankert und erscheinen später nutzerfreundlich im Konsum‑Modus.
+
+
+---
+
+Slide 4 — Heutige Pain Points (Builder)
+
+Folientext
+
+Einstellungen schwer auffindbar
+
+CI uneinheitlich, Nacharbeiten
+
+PDF/Screenshots bleiben außen vor
+
+Zweck je Chart selten dokumentiert
+
+Exploration zufällig statt geplant
+
+
+Notes/Hintergrund
+Zeitverlust, Inkonsistenz und Interpretationsspielräume kosten Qualität und Akzeptanz. Wir adressieren genau diese Reibungen.
+
+
+---
+
+Slide 5 — Vision: Guided Builder Mode
+
+Folientext
+
+Geführte Einstellungen im Authoring
+
+CI‑Presets & Linting
+
+Unstrukturierte Daten nutzbar
+
+Question Cards je Visual
+
+Analysis Paths vordefiniert
+
+UX‑Tuning & Micro‑Literacy
+
+
+Notes/Hintergrund
+Vom Tool zum Assistenten im Builder: Intention dokumentieren (Fragen), Exploration planen (Pfade), CI sichern (Presets), Qualität sichtbar machen (UX‑Check).
+
+
+---
+
+Slide 6 — Use‑Case 1: Guided Einstellungen
+
+Folientext
+Schnell zur richtigen Option · Kontext‑Overlays · Weniger Fehler
+
+Notes/Hintergrund
+Geführte Pfade zu häufigen Einstellungen („Leite mich zu…“). Reduzierte Suchzeit, konsistentere Konfiguration. Technik high‑level: UI‑Guidance & Role‑aware Hilfe – Umsetzung durch Strategy One.
+
+
+---
+
+Slide 7 — Use‑Case 2: Unstrukturierte Daten (PDF/Img) → Quelle
+
+Folientext
+PDF/Screenshot hochladen · Strukturiert nutzen · Direkt visualisieren
+
+Notes/Hintergrund
+Viele Fachinfos liegen in PDFs/Images. Wir wollen sie als Datenquelle einbinden (Erkennung, Vorschau, Mapping). Lösungsausgestaltung (OCR/NLP‑Pfad, Confidence, Korrekturfluss) liefert Strategy One.
+
+
+---
+
+Slide 8 — Use‑Case 3: CI‑Presets & Linting
+
+Folientext
+CI per Klick · Regeln prüfen · 1‑Klick‑Korrektur
+
+Notes/Hintergrund
+Vordefinierte CI‑Presets (Farben, Typo, Achsen, Legende) + Linting (Kontrast, Lesbarkeit). Ziel: Zero‑Nacharbeit vor Publish. Strategy One definiert, wie Presets & Regeln im Produkt verankert werden.
+
+
+---
+
+Slide 9 — Use‑Case 4: Visuelles Beispiel‑Matching
+
+Folientext
+Screenshot rein · Layout/Chart‑Vorschläge · 80 % Vorlage
+
+Notes/Hintergrund
+Builder lädt ein Vorbild (Screenshot) hoch und erhält passende Vorschläge (Layout/Chart). Strategy One entwirft die Erkennungs‑ & Vorschlagslogik, wir testen UX & Trefferqualität.
+
+
+---
+
+Slide 10 — Use‑Case 5: UI/UX‑Tuning & Accessibility
+
+Folientext
+UX‑Review‑Score · konkrete Fix‑Vorschläge · inkl. A11y
+
+Notes/Hintergrund
+Heuristiken & Accessibility‑Checks ergeben konkrete, sichere Fixes (z. B. Kontrast, Labels, Dichte). Umsetzung & Messlogik kommen von Strategy One; wir liefern CI‑Regeln & Akzeptanzkriterien.
+
+
+---
+
+Slide 11 — Use‑Case 6: Question Cards (Zweck pro Visual)
+
+Folientext
+Klare Fragen je Chart · Validiert · Für Konsum sichtbar
+
+Notes/Hintergrund
+Ersteller:innen hinterlegen Business‑Fragen, die das Chart beantwortet (validiert durch Owner). So wird der Purpose explizit. Strategy One stellt die Metadatenführung & Anzeige bereit.
+
+
+---
+
+Slide 12 — Use‑Case 7: Analysis Path Designer
+
+Folientext
+Exploration planen · Drill/Filter‑Pfade · Kontext‑Hinweise
+
+Notes/Hintergrund
+Builder definiert geführte Analysepfade (Drill/Filter + Bedingungen). Im Konsum‑Modus erscheinen dezente, on‑chart Hinweise („Drilldown hier“). Strategy One liefert den Pfad‑Editor & Runtime‑Hinweise.
+
+
+---
+
+Slide 13 — Use‑Case 8: In‑Tool Empfehlungen (Triggerbasiert)
+
+Folientext
+Tipps im Chart · Trigger: Hover/Klick/Leerlauf · „Drill/Filter jetzt?“
+
+Notes/Hintergrund
+Kontexttipps genau dann, wenn Nutzer „stecken“. Trigger & Vorschläge werden vom Builder vordefiniert. Strategy One liefert Event‑Hooks & Aussteuerung; wir testen Relevanz & Dezenz.
+
+
+---
+
+Slide 14 — Use‑Case 9 (Bonus): Micro‑Data‑Literacy
+
+Folientext
+Mini‑Erklärungen · Median vs. Mittelwert · Chart‑Wahl begründet
+
+Notes/Hintergrund
+Kurzform‑Erklärungen im Authoring, optional mitveröffentlichen. Strategy One gestaltet die Einbettung (Tooltips/Glossar). Kein Schulungsersatz, sondern kontextuelle Stütze.
+
+
+---
+
+Slide 15 — User‑Story‑Katalog (Auszug, 1 von 2)
+
+Folientext
+US‑01 (Guided Settings): Als Builder möchte ich kontextuelle Pfade zu wichtigen Einstellungen, damit ich schneller konfigurieren kann. (AK: Top‑10‑Settings geführt; <2 Klicks zum Ziel.)
+US‑02 (Unstructured Ingest): Als Builder möchte ich PDFs/Screenshots als Quelle nutzbar machen, damit ich Fachinfos schnell visualisieren kann. (AK: Upload→Vorschau→Mapping in <5 Min.)
+US‑03 (CI‑Preset): Als Builder möchte ich CI‑Presets & Linting, damit ich ohne Nacharbeiten veröffentlichen kann. (AK: CI‑Lint pass; Auto‑Fix verfügbar.)
+US‑04 (Example‑Match): Als Builder möchte ich Layout‑Vorschläge aus Screenshots, damit ich schneller zum Ziel komme. (AK: ≥1 brauchbarer Vorschlag je Upload.)
+
+Notes/Hintergrund
+Akzeptanzkriterien sind messbar gehalten. Detail‑Definition im Pilot.
+
+
+---
+
+Slide 16 — User‑Story‑Katalog (Auszug, 2 von 2)
+
+Folientext
+US‑05 (Question Cards): Als Builder möchte ich je Visual mind. 1 validierte Frage hinterlegen, damit der Zweck klar ist. (AK: Pflicht vor Publish.)
+US‑06 (Path Designer): Als Builder möchte ich vordefinierte Drill/Filter‑Pfade, damit Exploration gezielt erfolgt. (AK: ≥1 Pfad je Kern‑KPI.)
+US‑07 (In‑Tool Tipps): Als Builder möchte ich Trigger‑basierte Hinweise, damit Nutzer nicht hängen bleiben. (AK: max. 2 Hinweise; abschaltbar.)
+US‑08 (Micro‑Literacy): Als Builder möchte ich kompakte KPI/Chart‑Erklärungen, damit Interpretation gelingt. (AK: kontextgenau, CI‑konform.)
+
+Notes/Hintergrund
+Die Stories decken alle priorisierten Use‑Cases ab (MVP‑Scope). Weitere Stories können nach Pilot ergänzt werden.
+
+
+---
+
+Slide 17 — Was wir von Strategy One brauchen (Produkt‑Asks)
+
+Folientext
+
+1. Commitment: AutoDashboard‑Invest in Guided Builder Mode
+
+
+2. Hooks/Erweiterbarkeit: Settings‑Guides, CI‑Presets, Question‑/Path‑Metadaten
+
+
+3. High‑Level Ingestion: PDF/Screenshot→Quelle (UX‑Flow)
+
+
+4. On‑Chart Hints: dezente, Trigger‑basierte Hinweise
+
+
+5. Pilot‑Setup: dedizierte Umgebung + Product‑Owner:in
+
+
+
+Notes/Hintergrund
+Wir fragen keine Implementationsdetails ab. Wir brauchen Produkt‑Entscheidungen und Verbindlichkeit für einen Pilot.
+
+
+---
+
+Slide 18 — Entscheidung heute
+
+Folientext
+
+Produktfokus: Guided Builder Mode ja/nein
+
+Pilot‑Go mit gemeinsamer Arbeitsgruppe
+
+Timing & Ansprechpersonen festlegen
+
+
+Notes/Hintergrund
+Ohne diese Zusagen verpufft der Impuls. Wir schlagen einen klaren Pilot mit messbaren Zielen vor (nächste Folie).
+
+
+---
+
+Slide 19 — Pilot‑Charter (12 Wochen)
+
+Folientext
+Scope: 2 Fachbereiche · 6–8 Dashboards
+Deliverables: CI‑Preset, Guided Settings (Top‑10), Question Cards, 10 Analysepfade, On‑Chart Hints (Regel‑basiert)
+KPIs: Time‑to‑Dashboard ↓30 %, CI‑Lint Passrate ≥90 %, Question Coverage ≥90 %, Path Coverage ≥70 %
+Rollen: Strategy One (PO/Eng) · Wir (Fach, CI, Daten)
+
+Notes/Hintergrund
+Kleiner, aber repräsentativer Umfang. Wir liefern Daten, CI und Review; Strategy One liefert Produkt‑Enabler & UI/UX.
+
+
+---
+
+Slide 20 — Technik auf hoher Flughöhe (ohne Lösungsvorgaben)
+
+Folientext
+
+Guidance/Overlays im Authoring
+
+CI‑Presets & Linting im Produkt
+
+Unstructured‑Ingest mit Vorschau/Mapping
+
+Metadaten für Questions & Paths
+
+Events/Trigger für On‑Chart‑Hinweise
+
+
+Notes/Hintergrund
+Das Was ist klar; das Wie liegt bei Strategy One. Wir bewerten gemeinsam UX, Qualität und Wirkung im Pilot.
+
+
+---
+
+Slide 21 — Nicht‑Ziele & Constraints
+
+Folientext
+
+Kein Ersatz für Data Lineage (nur später denkbar)
+
+Keine tiefen Implementationsvorgaben
+
+Hinweise dezent, abschaltbar, CI‑konform
+
+Datenschutz & Rollen strikt einhalten
+
+
+Notes/Hintergrund
+Wir verhindern Scope‑Creep, halten das MVP fokussiert und produktreif.
+
+
+---
+
+Slide 22 — Risiken & Gegenmaßnahmen
+
+Folientext
+
+Hinweis‑Überfrachtung → Max. 2, Rate‑Limiting
+
+Trefferqualität → Pilot‑Tuning, Feedback‑Schleifen
+
+Akzeptanz → Co‑Design mit Power‑Usern
+
+Zeitplan → 2‑wöchige Reviews, klare DoD
+
+
+Notes/Hintergrund
+Risiken sind beherrschbar, wenn wir schlank starten und eng iterieren.
+
+
+---
+
+Slide 23 — Roadmap (MVP → +6M → +12M)
+
+Folientext
+MVP (12 W): UC1, UC3, UC6, UC7 light, UC8 basic
++6M: UC2, UC4, UC5, UC8 erweitert
++12M: Adaptive Recos, evtl. Lineage‑Ansichten
+
+Notes/Hintergrund
+Erst die Basics im Produkt verankern, dann Komfort & Intelligenz ausbauen.
+
+
+---
+
+Slide 24 — Abschluss & Next Steps
+
+Folientext
+Pilot‑Go? → Team benennen → Starttermin fixieren
+Wir liefern: Daten, CI, Akzeptanzkriterien
+
+Notes/Hintergrund
+Mit dem Pilot schaffen wir einen belastbaren Produkt‑Case für Guided Builder Mode.
+
+
+---
+
+Ergänzung: Konsolidierte Übersicht (für eine Backup‑Folie)
+
+Use‑Cases ↔ User Stories ↔ Vendor‑Asks ↔ KPIs
+
+UC Kernnutzen (Builder) User Story (Kurz) Produkt‑Ask (Strategy One) KPI im Pilot
+
+UC1 Guided Settings Zeit sparen, weniger Fehler US‑01 Authoring‑Guides/Overlays -20% Config‑Zeit
+UC2 Visual Matching schneller zum Layout US‑02 Upload→Vorschau→Mapping <5 Min bis Visual
+UC3 UX Advisory CI‑sicher publishen US‑03 Presets+Linting+Fix ≥90% CI‑Passrate
+UC4 Context Documentation Zweck explizit machen US‑04 Screenshot‑→Vorschläge ≥1 guter Vorschlag
+UC5 Path Builder Exploration planen US‑05 Pfad‑Editor & Runtime ≥70% Coverage
+UC6 Path Hints Guidance im Moment US‑06 Trigger & Hints Tipp‑CTR messbar
+UC7 Chart Path Hints Visuelle Pfadindikatoren US‑07 Trigger & Hints Tipp‑CTR messbar
+UC8 Object Addressing Objekte gezielt adressieren US‑08 Trigger & Hints Tipp‑CTR messbar
+UC9 System Prompts Vorgegebene Prompts US‑09 Tooltips/Glossar Aufrufrate ↑
+
+
+
+---
+
+Kritischer Abschlusscheck (gegen dein Ziel)
+
+Zielgruppe: klar Builder‑First (Slides 2–3).
+
+Nutzenbezug/Power‑User: jeder Use‑Case ist auf Ersteller‑Nutzen formuliert (Slides 6–14).
+
+User Stories: konsolidiert & mit AK (Slides 15–16 + Matrix).
+
+Technik High‑Level: „Was“ statt „Wie“ (Slides 20 + in allen Use‑Cases); keine Implementationsvorgaben.
+
+Vendor‑Gesprächstauglich: klare Produkt‑Asks & Entscheidungsfolie (Slides 17–18), Pilot‑Charter mit KPIs (Slide 19), Nicht‑Ziele/Constraints (Slide 21).
+
+
+👉 Ergebnis: Die überarbeitete Fassung erfüllt das Vorhaben präzise und vendor‑gerecht.
+Wenn du willst, setze ich dir daraus ein präsenterbares Deck (DE/EN) mit kurzen Folientexten und vollständigen Speaker Notes.
