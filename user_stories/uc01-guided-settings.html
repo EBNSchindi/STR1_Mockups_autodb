@@ -5,6 +5,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>UC1 — Guided Settings · Dark/Bright Mode</title>
     <link rel="stylesheet" href="styles.css" />
+    <script>
+      window.UC_TOUR_OPTS = {
+        backHref: "../index.html",
+        md: "",
+        delay: 3500,
+        loop: false
+      };
+    </script>
+    <script id="uc-meta" type="application/json">
+      {
+        "title": "UC1 — Guided Settings",
+        "problem": "Settings are hard to find and configuration takes too long (builder pain).",
+        "problem_bullets": [
+          "<b>Findability</b>: Hard to locate relevant settings",
+          "<b>Time‑to‑configure</b>: Configuration takes too long",
+          "<b>Error rate</b>: Frequent mistakes require rework"
+        ],
+        "core": "Contextual configuration help with previews and quick actions.",
+        "core_bullets": [
+          "<b>Context recognition</b> (state‑aware suggestions)",
+          "<b>Dual approach</b> (quick actions + guided paths)",
+          "<b>Live preview</b> before apply",
+          "<b>Progressive disclosure</b> for advanced settings"
+        ],
+        "highlights": [
+          { "selector": "#current-theme", "title": "Context Banner", "text": "Shows current mode & options.", "effect": "box" },
+          { "selector": "#quick-actions", "title": "Quick Actions", "text": "Apply Dark/Light with one click.", "effect": "box" },
+          { "selector": "#theme-preview", "title": "Live Preview", "text": "See changes before applying.", "effect": "zoom" },
+          { "selector": "#manual-steps", "title": "Manual Steps", "text": "Documented fallback instructions.", "effect": "box" }
+        ]
+      }
+    </script>
+    <style>
+      /* Inline UC Tour styles */
+      .uc-tour-banner{position:fixed;top:10px;left:10px;z-index:9999;background:rgba(255,255,255,.96);border:1px solid #e5e7eb;border-radius:12px;padding:12px 16px;box-shadow:0 6px 16px rgba(0,0,0,.10);font:700 14px/1.25 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica Neue,Arial;color:#111827}
+      .uc-tour-banner .uc-title{font-weight:900;letter-spacing:.01em;font-size:17px}
+      .uc-tour-overlay{position:fixed;inset:0;z-index:9997;background:rgba(17,24,39,.45);pointer-events:none}
+      /* Spotlight tokens */
+      :root { --spot-radius: 12px; --spot-white: #fff; --spot-blue: #2563eb; --spot-dim: rgba(17,24,39,.45); }
+      /* Base tip (used for UI element highlights) */
+      .uc-tour-tip{position:fixed;z-index:10000;max-width:560px;background:#fff;border:none;border-radius:var(--spot-radius);padding:14px;color:#111827;font:500 14px/1.45 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica Neue,Arial;box-shadow:inset 0 0 0 2px var(--spot-white),0 0 0 3px var(--spot-blue),0 0 54px rgba(37,99,235,.45)}
+      .uc-tour-tip .uc-tip-title{font-weight:900;margin-bottom:8px;font-size:15px}
+      .uc-tour-tip .uc-tip-text{color:#111827}
+      /* No special styling on tip itself; the identical spotlight frame is added separately */
+      .uc-list{margin:0;padding-left:18px;color:#111827}
+      .uc-list li{margin:4px 0;}
+      .uc-list li b{font-weight:800}
+      /* Center tip (Problem/Core) — presentation scale */
+      .uc-tour-tip.center{top:50%;left:50%;transform:translate(-50%,-50%);max-width:960px;padding:32px;box-shadow:inset 0 0 0 2px var(--spot-white),0 0 0 3px var(--spot-blue),0 0 54px rgba(37,99,235,.45),0 16px 32px rgba(0,0,0,.20);font:600 28px/1.55 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica Neue,Arial}
+      .uc-tour-tip.center .uc-tip-title{font-size:32px;margin-bottom:16px}
+      .uc-tour-tip.center .uc-list li{margin:8px 0}
+      .uc-spotlight-box{position:fixed;z-index:9999;border:2px solid var(--spot-white);box-shadow:0 0 0 3px var(--spot-blue),0 0 0 200vw var(--spot-dim);border-radius:var(--spot-radius);pointer-events:none;transition:all .2s ease}
+      /* Ring-only spotlight for tips (no dim overlay), identical frame */
+      .uc-spotlight-ring{position:fixed;z-index:9999;border:2px solid var(--spot-white);box-shadow:0 0 0 3px var(--spot-blue);border-radius:var(--spot-radius);pointer-events:none}
+      /* Non-dimming spotlight class no longer needed for tips (ring applied to tip itself) */
+      .uc-spotlight-tip{display:none}
+      .uc-zoom-target{transition:transform .25s ease,box-shadow .25s ease;box-shadow:0 8px 32px rgba(0,0,0,.25)}
+      .uc-tour-controls{position:fixed;z-index:9999;bottom:16px;left:50%;transform:translateX(-50%);display:grid;grid-auto-flow:column;gap:8px;align-items:center;background:rgba(255,255,255,.95);border:1px solid #e5e7eb;border-radius:999px;padding:8px 10px;box-shadow:0 6px 20px rgba(0,0,0,.12)}
+      .uc-btn{border:1px solid #e5e7eb;background:#fff;color:#111827;border-radius:999px;font-weight:700;font-size:12px;padding:6px 10px;cursor:pointer}
+      .uc-btn.primary{background:#2563eb;border-color:#2563eb;color:#fff}
+      .uc-step-indicator{font-size:12px;color:#374151;padding:0 6px}
+      .uc-back-link{text-decoration:none;color:#2563eb;font-weight:700;margin-left:6px}
+      .uc-toast{position:fixed;z-index:10000;bottom:16px;left:16px;background:#111827;color:#fff;border-radius:8px;padding:8px 12px;font-size:12px;opacity:.95}
+    </style>
+    <script>
+      (function(){
+        const qs=new URLSearchParams(location.search);
+        const conf=Object.assign({backHref:'../index.html',delay:3500,loop:false},window.UC_TOUR_OPTS||{});
+        let autoplay=qs.get('autoplay')==='1';
+        let step=Number(qs.get('step')??'1');
+        const state={steps:[],current:isNaN(step)?1:step,playing:autoplay,timer:null};
+        const backHref=qs.get('back')||conf.backHref;
+        const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h)e.innerHTML=h;return e;};
+        const rect=(n)=>n.getBoundingClientRect();
+        function updateUrl(){const p=new URL(location.href);p.searchParams.set('step',String(state.current));history.replaceState({},'',p);} 
+        function toast(m){const t=el('div','uc-toast',m);document.body.appendChild(t);setTimeout(()=>t.remove(),2200);} 
+        function metaFromInline(){try{const n=document.getElementById('uc-meta');if(!n)return null;return JSON.parse(n.textContent);}catch{return null}}
+        function fallback(){const ttl=(document.title||'Use Case').split('·')[0].trim();return{title:ttl,problem:'Problem not provided.',core:'Core information not provided.',highlights:[{selector:'#current-theme',title:'Context Banner',text:'Shows current mode & options.',effect:'box'},{selector:'#quick-actions',title:'Quick Actions',text:'One-click apply.',effect:'box'},{selector:'#theme-preview',title:'Live Preview',text:'See changes before applying.',effect:'zoom'},{selector:'#manual-steps',title:'Manual Steps',text:'Documented fallback.',effect:'box'}]}}
+        function build(meta){const s=[];s.push({kind:'banner',title:meta.title});s.push({kind:'center',title:'Problem',text:meta.problem,bullets:meta.problem_bullets});s.push({kind:'center',title:'Core',text:meta.core,bullets:meta.core_bullets});(meta.highlights||[]).forEach(h=>s.push({kind:'highlight',...h}));s.push({kind:'end'});return s;}
+        function renderBanner(title){let n=document.querySelector('.uc-tour-banner');if(!n){n=el('div','uc-tour-banner',`<span class="uc-title">${title}</span>`);document.body.appendChild(n);}else{n.querySelector('.uc-title').textContent=title;}}
+        function clearStep(){document.querySelectorAll('.uc-tour-overlay,.uc-tour-tip,.uc-spotlight-box,.uc-spotlight-ring,.uc-spotlight-tip').forEach(n=>n.remove());document.querySelectorAll('.uc-zoom-target').forEach(n=>n.classList.remove('uc-zoom-target'));}
+        function ensureControls(){let c=document.querySelector('.uc-tour-controls');if(c)return c;c=el('div','uc-tour-controls');const prev=el('button','uc-btn','← Back');const next=el('button','uc-btn primary','Next →');const auto=el('button','uc-btn',state.playing?'⏸ Auto':'⏵ Auto');const ind=el('span','uc-step-indicator','');const back=el('a','uc-back-link','Back to Landing Page');back.href=backHref;c.append(prev,next,auto,ind,back);document.body.appendChild(c);prev.addEventListener('click',prevStep);next.addEventListener('click',nextStep);auto.addEventListener('click',toggleAuto);updateControls();return c;}
+        function updateControls(){const total=Math.max(0,state.steps.length-1);const idx=Math.max(0,state.current);const i=document.querySelector('.uc-step-indicator');if(i)i.textContent=`Step ${Math.max(0,idx)} / ${total}`;const a=document.querySelector('.uc-tour-controls .uc-btn:nth-child(3)');if(a)a.textContent=state.playing?'⏸ Auto':'⏵ Auto';}
+        function centerTip(title,text,bullets){const list=Array.isArray(bullets)&&bullets.length?`<ul class=\"uc-list\">${bullets.map(i=>`<li>${i}</li>`).join('')}</ul>`:'';const tip=el('div','uc-tour-tip center',`<div class=\"uc-tip-title\">${title}</div><div class=\"uc-tip-text\">${text}</div>${list}`);document.body.appendChild(el('div','uc-tour-overlay'));document.body.appendChild(tip);} 
+        function highlight({selector,title,text,effect}){const t=document.querySelector(selector);if(!t){toast(`Element not found: ${selector}`);return false;}t.scrollIntoView({behavior:'smooth',block:'center'});const r=rect(t);if(effect==='zoom'){t.classList.add('uc-zoom-target');t.style.transformOrigin='center center';t.style.transform='scale(1.12)';setTimeout(()=>{t.style.transform='';},Math.min(conf.delay,1800));}
+          const box=el('div','uc-spotlight-box');Object.assign(box.style,{top:`${Math.max(4,r.top-6)}px`,left:`${Math.max(4,r.left-6)}px`,width:`${r.width+12}px`,height:`${r.height+12}px`});document.body.appendChild(box);
+          const tip=el('div','uc-tour-tip',`<div class=\"uc-tip-title\">${title||''}</div><div class=\"uc-tip-text\">${text||''}</div>`);const tLeft=Math.min(window.innerWidth-560-12,r.right+12);const tTop=Math.max(12,r.top);Object.assign(tip.style,{left:`${tLeft}px`,top:`${tTop}px`});document.body.appendChild(tip);
+          // Ring now applied directly on tip via CSS; no separate spotlight needed
+          return true;}
+        function render(){
+          clearStep();
+          updateControls();
+          const s=state.steps[state.current];
+          if(!s)return;
+          // Only suppress overlays on the explicit 'end' step
+          if(s.kind==='end'){ return; }
+          if(s.kind==='center') centerTip(s.title,s.text,s.bullets);
+          if(s.kind==='highlight'){
+            const ok=highlight(s);
+            if(!ok) nextStep();
+          }
+        }
+        function nextStep(){if(state.current<state.steps.length-1){state.current+=1}else if(conf.loop){state.current=1}updateUrl();render();}
+        function prevStep(){if(state.current>1)state.current-=1;else state.current=1;updateUrl();render();}
+        function toggleAuto(){state.playing=!state.playing;updateControls();if(state.playing)schedule();else clearTimeout(state.timer);} 
+        function schedule(){clearTimeout(state.timer);state.timer=setTimeout(()=>{if(state.current>=state.steps.length-1&&!conf.loop){state.playing=false;updateControls();return;}nextStep();schedule();},conf.delay);} 
+        function onKey(e){if(e.key==='ArrowRight'||e.key==='Enter'){e.preventDefault();nextStep()}if(e.key==='ArrowLeft'){e.preventDefault();prevStep()}if(e.key===' '){e.preventDefault();toggleAuto()}if(e.key==='Escape'){e.preventDefault();clearStep();state.playing=false;updateControls()}}
+        document.addEventListener('DOMContentLoaded',()=>{
+          const meta=metaFromInline()||fallback();
+          state.steps=build(meta);
+          renderBanner(meta.title||'Use Case');
+          ensureControls();
+          if(state.current!==0)render(); else updateControls();
+          if(state.playing&&state.current!==0)schedule();
+          window.addEventListener('keydown',onKey);
+        });
+      })();
+    </script>
   </head>
   <body>
     <div class="shell">
@@ -29,12 +147,12 @@
             <div class="card-body">
               <p class="lead">I'll guide you through theme configuration with step-by-step instructions and quick actions:</p>
               
-              <div class="guide-section">
+              <div class="guide-section" id="current-theme">
                 <h4>📍 Current Theme: Bright Mode</h4>
                 <p class="guide-text">Your dashboard is currently using the bright theme. Here are your options:</p>
               </div>
 
-              <div class="action-grid">
+              <div class="action-grid" id="quick-actions">
                 <div class="action-card">
                   <div class="action-header">
                     <span class="action-icon">🌙</span>
@@ -54,7 +172,7 @@
                 </div>
               </div>
 
-              <div class="guide-path">
+              <div class="guide-path" id="manual-steps">
                 <div class="path-header">📋 Manual Steps (if needed):</div>
                 <ol class="path-steps">
                   <li><strong>Settings</strong> → Appearance</li>
@@ -65,21 +183,69 @@
                 <button class="guide-btn">Show me in UI</button>
               </div>
 
-              <div class="preview-toggle">
+              <div class="preview-toggle" id="preview-toggle">
                 <span class="preview-label">Preview:</span>
-                <div class="theme-preview">
+                <div class="theme-preview" id="theme-preview">
                   <div class="preview-item dark">
                     <div class="preview-header dark-header">Dark Theme</div>
-                    <div class="preview-chart dark-chart"></div>
+                    <div class="preview-chart dark-chart" aria-label="Dark theme chart preview">
+                      <svg viewBox="0 0 180 60" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                        <!-- axes -->
+                        <line x1="22" y1="8" x2="22" y2="52" stroke="#334155" stroke-width="1"/>
+                        <line x1="22" y1="52" x2="168" y2="52" stroke="#334155" stroke-width="1"/>
+                        <!-- previous (slate) -->
+                        <g fill="#64748b" opacity="0.7">
+                          <rect x="32" y="40" width="8" height="12" rx="2"/>
+                          <rect x="56" y="36" width="8" height="16" rx="2"/>
+                          <rect x="80" y="30" width="8" height="22" rx="2"/>
+                          <rect x="104" y="24" width="8" height="28" rx="2"/>
+                          <rect x="128" y="18" width="8" height="34" rx="2"/>
+                        </g>
+                        <!-- current (brand) -->
+                        <g fill="#3b82f6">
+                          <rect x="42" y="34" width="8" height="18" rx="2"/>
+                          <rect x="66" y="28" width="8" height="24" rx="2"/>
+                          <rect x="90" y="22" width="8" height="30" rx="2"/>
+                          <rect x="114" y="16" width="8" height="36" rx="2"/>
+                          <rect x="138" y="12" width="8" height="40" rx="2"/>
+                        </g>
+                        <!-- trend -->
+                        <path d="M 46 34 L 70 28 L 94 22 L 118 16 L 142 12" stroke="#10a5a5" stroke-width="2" fill="none"/>
+                      </svg>
+                    </div>
                   </div>
                   <div class="preview-item bright">
                     <div class="preview-header bright-header">Bright Theme</div>
-                    <div class="preview-chart bright-chart"></div>
+                    <div class="preview-chart bright-chart" aria-label="Bright theme chart preview">
+                      <svg viewBox="0 0 180 60" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                        <!-- axes -->
+                        <line x1="22" y1="8" x2="22" y2="52" stroke="#9ca3af" stroke-width="1"/>
+                        <line x1="22" y1="52" x2="168" y2="52" stroke="#9ca3af" stroke-width="1"/>
+                        <!-- previous (gray) -->
+                        <g fill="#9ca3af" opacity="0.65">
+                          <rect x="32" y="40" width="8" height="12" rx="2"/>
+                          <rect x="56" y="36" width="8" height="16" rx="2"/>
+                          <rect x="80" y="30" width="8" height="22" rx="2"/>
+                          <rect x="104" y="24" width="8" height="28" rx="2"/>
+                          <rect x="128" y="18" width="8" height="34" rx="2"/>
+                        </g>
+                        <!-- current (brand) -->
+                        <g fill="#2563eb">
+                          <rect x="42" y="34" width="8" height="18" rx="2"/>
+                          <rect x="66" y="28" width="8" height="24" rx="2"/>
+                          <rect x="90" y="22" width="8" height="30" rx="2"/>
+                          <rect x="114" y="16" width="8" height="36" rx="2"/>
+                          <rect x="138" y="12" width="8" height="40" rx="2"/>
+                        </g>
+                        <!-- trend -->
+                        <path d="M 46 34 L 70 28 L 94 22 L 118 16 L 142 12" stroke="#ef4444" stroke-width="2" fill="none" stroke-dasharray="3,2"/>
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <button class="fab" title="Download Settings">⬇</button>
+              
             </div>
           </div>
           <div class="meta">AutoBot · 1 min ago</div>
