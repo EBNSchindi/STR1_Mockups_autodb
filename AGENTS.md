@@ -64,9 +64,14 @@ This repository contains static mockups for the Auto Dashboard and Autobot Chat.
   - Add an explicit terminal step `{ kind: 'end' }` with no overlays (mockup fully visible).
   - Controls in English: “Back”, “Next”, “Step X / Y”.
   - Direct file access: pages must render via `file://` (no network calls).
+  - Scroll behavior: default centers the spotlight (`smartScroll: 'center'`). Per‑page override via `window.UC_TOUR_OPTS.smartScroll = 'viewport' | 'off'`.
+    - `center`: center element every highlight step
+    - `viewport`: only nudge into view if fully offscreen
+    - `off`: never scroll
 
 - Reuse
   - Replicate this structure for UC2–UC10; only adjust meta (title/problem/core/bullets/highlights). Shared styles/logic stay unchanged.
+  - Use shared assets for tours: include `../assets/tour.css` and `../assets/tour.js` in UC HTML files. UC1 may keep inline tour logic but must match these standards.
 
 ## Visual Standards (Quick Reference)
 - Ring thickness: inner white 2px (inset), outer blue 3px.
