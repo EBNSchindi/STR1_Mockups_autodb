@@ -5,6 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>UC5 — Path Builder · Builder Experience</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../assets/tour.css" />
+    <script>
+      window.UC_TOUR_OPTS = {
+        backHref: "../index.html",
+        md: "",
+        delay: 3500,
+        loop: false
+      };
+    </script>
+    <script id="uc-meta" type="application/json">
+      {
+        "title": "UC5 — Path Builder",
+        "user_story": "As a builder, I want to design guided analysis paths, so users can explore insights step by step",
+        "problem": "Exploration is inconsistent; users miss key steps or get lost in the data.",
+        "problem_bullets": [
+          "<b>No guidance</b>: Ad‑hoc exploration",
+          "<b>Missed insights</b>: Important steps skipped",
+          "<b>Inconsistency</b>: Different experiences per user"
+        ],
+        "core": "Design, configure and preview structured drill paths with controls and quick apply.",
+        "core_bullets": [
+          "<b>Suggested path</b> with current step",
+          "<b>Path controls</b>: auto‑suggest, breadcrumbs",
+          "<b>Consumer preview</b> play entry",
+          "<b>Apply/Test</b> actions"
+        ],
+        "highlights": [
+          { "selector": ".visual-reference", "title": "Visual Context", "text": "Reference visual for which the path is built.", "effect": "box" },
+          { "selector": ".path-builder .path-flow", "title": "Suggested Path", "text": "Recommended sequence with current step highlighted.", "effect": "box" },
+          { "selector": ".path-controls", "title": "Path Controls", "text": "Enable auto‑suggest and breadcrumbs.", "effect": "box" },
+          { "selector": ".path-preview .preview-container", "title": "Consumer Preview", "text": "How users will start the guided path.", "effect": "box" }
+        ]
+      }
+    </script>
+    <script defer src="../assets/tour.js"></script>
   </head>
   <body>
     <div class="shell">

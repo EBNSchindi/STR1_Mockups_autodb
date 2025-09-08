@@ -5,7 +5,12 @@ const conf = Object.assign({
   backHref: '/index.html',
   md: '',
   delay: 3500,
-  loop: false
+  loop: false,
+  // smartScroll modes:
+  //  - 'off'      → never scroll (keep positions fully stable)
+  //  - 'viewport' → nudge into view only if completely offscreen (no animation)
+  //  - 'center'   → always center the target in the viewport (no animation)
+  smartScroll: 'center'
 }, window.UC_TOUR_OPTS || {});
 
 // URL parameter overrides
@@ -42,6 +47,24 @@ function fallbackMeta(md) {
   // title from first H1
   const titleLine = md.split('\n').find(l => l.trim().startsWith('# ')) || '';
   const title = titleLine.replace(/^#\s+/, '').trim() || 'Use Case';
+  // user story (prefer one-liner, fallback to 3-line form)
+  let user_story = '';
+  // Try one-liner section
+  const oneLinerIdx = md.indexOf('### User Story (One-Liner)');
+  if (oneLinerIdx !== -1) {
+    const after = md.slice(oneLinerIdx).split('\n').slice(1, 6).map(s => s.trim());
+    const line = (after.find(s => s) || '').replace(/^\*+|\*+$/g, '').replace(/^\"|\"$/g, '').trim();
+    if (line) user_story = line;
+  }
+  // Fallback: structured 3-line form
+  if (!user_story) {
+    const asA = md.match(/\*\*As a\*\*\s*([^\n]+)/i);
+    const iWant = md.match(/\*\*I want\*\*\s*([^\n]+)/i);
+    const soThat = md.match(/\*\*So that\*\*\s*([^\n]+)/i);
+    if (asA && iWant && soThat) {
+      user_story = `As a ${asA[1].trim()}, I want ${iWant[1].trim()}, so that ${soThat[1].trim()}`;
+    }
+  }
   // problem from **Problem:** line
   const probMatch = md.match(/\*\*Problem:\*\*\s*(.+)/);
   const problem = probMatch ? probMatch[1].trim() : 'Problem description not found in markdown.';
@@ -54,15 +77,18 @@ function fallbackMeta(md) {
     { selector: '#theme-preview', title: 'Live Preview', text: 'See changes before applying.', effect: 'zoom' },
     { selector: '#manual-steps', title: 'Manual Steps', text: 'Fallback instructions available.', effect: 'box' }
   ];
-  return { title, problem, core, highlights: defaults };
+  return { title, user_story, problem, core, highlights: defaults };
 }
 
 function buildSteps(meta) {
   const steps = [];
   // 0 is banner (persist), we start rendering from 1
   steps.push({ kind: 'banner', title: meta.title });
+  if (meta.user_story) {
+    steps.push({ kind: 'center', title: 'User Story', text: meta.user_story });
+  }
   steps.push({ kind: 'center', title: 'Problem', text: meta.problem, bullets: meta.problem_bullets });
-  steps.push({ kind: 'center', title: 'Core', text: meta.core, bullets: meta.core_bullets });
+  steps.push({ kind: 'center', title: 'Core / Key Points', text: meta.core, bullets: meta.core_bullets });
   for (const h of (meta.highlights || [])) steps.push({ kind: 'highlight', ...h });
   // explicit terminal step without overlays
   steps.push({ kind: 'end' });
@@ -128,8 +154,18 @@ function centerTip(title, text, bullets) {
 function highlightStep({ selector, title, text, effect }) {
   const target = document.querySelector(selector);
   if (!target) { showToast(`Element not found: ${selector}`); return false; }
-  target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  const r = rectOf(target);
+  // Center or nudge into view depending on setting
+  let r = rectOf(target);
+  if (conf.smartScroll === 'center') {
+    target.scrollIntoView({ behavior: 'auto', block: 'center', inline: 'center' });
+    r = rectOf(target);
+  } else if (conf.smartScroll !== 'off') {
+    const offscreen = (r.bottom < 0) || (r.top > window.innerHeight) || (r.right < 0) || (r.left > window.innerWidth);
+    if (offscreen) {
+      target.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'nearest' });
+      r = rectOf(target);
+    }
+  }
   if (effect === 'zoom') {
     target.classList.add('uc-zoom-target');
     target.style.transformOrigin = 'center center';
@@ -143,9 +179,12 @@ function highlightStep({ selector, title, text, effect }) {
   // tip to the right by default
   const tip = el('div', 'uc-tour-tip');
   tip.innerHTML = `<div class="uc-tip-title">${title || ''}</div><div class="uc-tip-text">${text || ''}</div>`;
-  // UI element tips use the smaller base width
-  const tLeft = Math.min(window.innerWidth - 560 - 12, r.right + 12);
-  const tTop = Math.max(12, r.top);
+  // UI element tips use the smaller base width; keep inside viewport
+  const tipW = 560;
+  let tLeft = r.right + 12; // prefer right side
+  if (tLeft + tipW > window.innerWidth - 12) tLeft = Math.max(12, r.left - tipW - 12); // fallback left
+  let tTop = Math.max(12, r.top);
+  tTop = Math.min(tTop, Math.max(12, window.innerHeight - 180)); // coarse clamp to reduce overflow
   Object.assign(tip.style, { left: `${tLeft}px`, top: `${tTop}px` });
   document.body.appendChild(tip);
   // ring is applied via CSS directly on the tip (outline + shadow)
@@ -162,7 +201,10 @@ function renderStep() {
   if (s.kind === 'center') centerTip(s.title, s.text, s.bullets);
   if (s.kind === 'highlight') {
     const ok = highlightStep(s);
-    if (!ok) nextStep();
+    if (!ok) {
+      // Only auto-advance if autoplay is active; avoid skipping when navigating manually (e.g., Back)
+      if (state.playing) nextStep();
+    }
   }
 }
 

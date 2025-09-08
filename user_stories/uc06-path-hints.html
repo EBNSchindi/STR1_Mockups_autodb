@@ -5,6 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>UC6 — Path Hints · Guided Exploration</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../assets/tour.css" />
+    <script>
+      window.UC_TOUR_OPTS = {
+        backHref: "../index.html",
+        md: "",
+        delay: 3500,
+        loop: false
+      };
+    </script>
+    <script id="uc-meta" type="application/json">
+      {
+        "title": "UC6 — Path Hints",
+        "user_story": "As a consumer, I want guided path hints, so I can follow a curated flow without getting lost",
+        "problem": "Consumers are unsure what to do next; curated flows are underutilized.",
+        "problem_bullets": [
+          "<b>Unclear next step</b>",
+          "<b>Low adoption</b> of predefined paths",
+          "<b>Fragmented experience</b>"
+        ],
+        "core": "Show active path, current level details and next options with progress and controls.",
+        "core_bullets": [
+          "<b>Active path</b> visibility",
+          "<b>Current step</b> context",
+          "<b>Next options</b> (guided or alternative)",
+          "<b>Progress</b> breadcrumb"
+        ],
+        "highlights": [
+          { "selector": ".predefined-path", "title": "Active Path", "text": "See the predefined analysis flow and author.", "effect": "box" },
+          { "selector": ".current-level", "title": "Current Level", "text": "Details and mini‑chart for this step.", "effect": "box" },
+          { "selector": ".next-steps", "title": "Next Options", "text": "Choose guided next step or alternatives.", "effect": "box" },
+          { "selector": ".breadcrumb-preview", "title": "Progress", "text": "Track your position within the path.", "effect": "box" }
+        ]
+      }
+    </script>
+    <script defer src="../assets/tour.js"></script>
   </head>
   <body>
     <div class="shell">

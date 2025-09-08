@@ -5,6 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>UC8 — Object Addressing · @ Symbol Navigation</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../assets/tour.css" />
+    <script>
+      window.UC_TOUR_OPTS = {
+        backHref: "../index.html",
+        md: "",
+        delay: 3500,
+        loop: false
+      };
+    </script>
+    <script id="uc-meta" type="application/json">
+      {
+        "title": "UC8 — Object Addressing",
+        "user_story": "As a user, I want to reference dashboard objects with @, so I can act on specific visuals quickly",
+        "problem": "Targeting specific visuals/actions is slow without direct addressing.",
+        "problem_bullets": [
+          "<b>Slow targeting</b> of visuals",
+          "<b>Ambiguity</b> when referring to objects",
+          "<b>Friction</b> in complex dashboards"
+        ],
+        "core": "Use @object for precise actions with selector, help, quick actions and autocomplete.",
+        "core_bullets": [
+          "<b>Selector</b> with recommended item",
+          "<b>Addressing help</b> cheatsheet",
+          "<b>Quick actions</b> for common tasks",
+          "<b>Autocomplete</b> in input"
+        ],
+        "highlights": [
+          { "selector": ".object-selector .object-item.recommended", "title": "Recommended Object", "text": "Active visualization surfaced first.", "effect": "box" },
+          { "selector": ".addressing-help", "title": "Addressing Guide", "text": "How to use @ and # to navigate.", "effect": "box" },
+          { "selector": ".quick-actions", "title": "Quick Actions", "text": "One‑click actions using @visual01.", "effect": "box" },
+          { "selector": ".smart-input .autocomplete-popup", "title": "Autocomplete", "text": "Object suggestions as you type.", "effect": "box" }
+        ]
+      }
+    </script>
+    <script defer src="../assets/tour.js"></script>
   </head>
   <body>
     <div class="shell">

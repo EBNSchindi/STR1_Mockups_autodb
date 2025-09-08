@@ -5,6 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>UC10 — Dashboard Setup Wizard · Initial Configuration & dm Standards</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../assets/tour.css" />
+    <script>
+      window.UC_TOUR_OPTS = {
+        backHref: "../index.html",
+        md: "",
+        delay: 3500,
+        loop: false
+      };
+    </script>
+    <script id="uc-meta" type="application/json">
+      {
+        "title": "UC10 — Dashboard Setup Wizard",
+        "user_story": "As a builder, I want a setup wizard aligned to dm standards, so I can create consistent dashboards fast",
+        "problem": "New dashboards take long to set up and don’t consistently follow standards.",
+        "problem_bullets": [
+          "<b>Slow setup</b>",
+          "<b>Inconsistent</b> design across teams",
+          "<b>Manual</b> structure planning"
+        ],
+        "core": "Wizard applies dm standards, proposes structure and quick setup options with preview.",
+        "core_bullets": [
+          "<b>dm standards</b> applied (palette, typography)",
+          "<b>Page structure</b> recommendations",
+          "<b>Quick options</b> incl. recommended setup",
+          "<b>Preview</b> of resulting dashboard"
+        ],
+        "highlights": [
+          { "selector": ".setup-wizard", "title": "Setup Wizard", "text": "Guided initial configuration.", "effect": "box" },
+          { "selector": ".dm-standards", "title": "dm Standards", "text": "Palette, typography and spacing applied.", "effect": "box" },
+          { "selector": ".page-structure", "title": "Structure Plan", "text": "Suggested landing page and chapters.", "effect": "box" },
+          { "selector": ".quick-setup-options", "title": "Quick Options", "text": "Fast paths to a complete setup.", "effect": "box" },
+          { "selector": ".setup-preview", "title": "Preview", "text": "See the outcome before applying.", "effect": "box" }
+        ]
+      }
+    </script>
+    <script defer src="../assets/tour.js"></script>
   </head>
   <body>
     <div class="shell">

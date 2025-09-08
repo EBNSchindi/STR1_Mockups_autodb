@@ -16,6 +16,7 @@
     <script id="uc-meta" type="application/json">
       {
         "title": "UC1 — Guided Settings",
+        "user_story": "As a builder, I want contextual paths to settings, so I can configure dashboards quickly and correctly",
         "problem": "Settings are hard to find and configuration takes too long (builder pain).",
         "problem_bullets": [
           "<b>Findability</b>: Hard to locate relevant settings",
@@ -83,13 +84,22 @@
         function toast(m){const t=el('div','uc-toast',m);document.body.appendChild(t);setTimeout(()=>t.remove(),2200);} 
         function metaFromInline(){try{const n=document.getElementById('uc-meta');if(!n)return null;return JSON.parse(n.textContent);}catch{return null}}
         function fallback(){const ttl=(document.title||'Use Case').split('·')[0].trim();return{title:ttl,problem:'Problem not provided.',core:'Core information not provided.',highlights:[{selector:'#current-theme',title:'Context Banner',text:'Shows current mode & options.',effect:'box'},{selector:'#quick-actions',title:'Quick Actions',text:'One-click apply.',effect:'box'},{selector:'#theme-preview',title:'Live Preview',text:'See changes before applying.',effect:'zoom'},{selector:'#manual-steps',title:'Manual Steps',text:'Documented fallback.',effect:'box'}]}}
-        function build(meta){const s=[];s.push({kind:'banner',title:meta.title});s.push({kind:'center',title:'Problem',text:meta.problem,bullets:meta.problem_bullets});s.push({kind:'center',title:'Core',text:meta.core,bullets:meta.core_bullets});(meta.highlights||[]).forEach(h=>s.push({kind:'highlight',...h}));s.push({kind:'end'});return s;}
+        function build(meta){
+          const s=[];
+          s.push({kind:'banner',title:meta.title});
+          if(meta.user_story){ s.push({kind:'center', title:'User Story', text:meta.user_story}); }
+          s.push({kind:'center',title:'Problem',text:meta.problem,bullets:meta.problem_bullets});
+          s.push({kind:'center',title:'Core / Key Points',text:meta.core,bullets:meta.core_bullets});
+          (meta.highlights||[]).forEach(h=>s.push({kind:'highlight',...h}));
+          s.push({kind:'end'});
+          return s;
+        }
         function renderBanner(title){let n=document.querySelector('.uc-tour-banner');if(!n){n=el('div','uc-tour-banner',`<span class="uc-title">${title}</span>`);document.body.appendChild(n);}else{n.querySelector('.uc-title').textContent=title;}}
         function clearStep(){document.querySelectorAll('.uc-tour-overlay,.uc-tour-tip,.uc-spotlight-box,.uc-spotlight-ring,.uc-spotlight-tip').forEach(n=>n.remove());document.querySelectorAll('.uc-zoom-target').forEach(n=>n.classList.remove('uc-zoom-target'));}
         function ensureControls(){let c=document.querySelector('.uc-tour-controls');if(c)return c;c=el('div','uc-tour-controls');const prev=el('button','uc-btn','← Back');const next=el('button','uc-btn primary','Next →');const auto=el('button','uc-btn',state.playing?'⏸ Auto':'⏵ Auto');const ind=el('span','uc-step-indicator','');const back=el('a','uc-back-link','Back to Landing Page');back.href=backHref;c.append(prev,next,auto,ind,back);document.body.appendChild(c);prev.addEventListener('click',prevStep);next.addEventListener('click',nextStep);auto.addEventListener('click',toggleAuto);updateControls();return c;}
         function updateControls(){const total=Math.max(0,state.steps.length-1);const idx=Math.max(0,state.current);const i=document.querySelector('.uc-step-indicator');if(i)i.textContent=`Step ${Math.max(0,idx)} / ${total}`;const a=document.querySelector('.uc-tour-controls .uc-btn:nth-child(3)');if(a)a.textContent=state.playing?'⏸ Auto':'⏵ Auto';}
         function centerTip(title,text,bullets){const list=Array.isArray(bullets)&&bullets.length?`<ul class=\"uc-list\">${bullets.map(i=>`<li>${i}</li>`).join('')}</ul>`:'';const tip=el('div','uc-tour-tip center',`<div class=\"uc-tip-title\">${title}</div><div class=\"uc-tip-text\">${text}</div>${list}`);document.body.appendChild(el('div','uc-tour-overlay'));document.body.appendChild(tip);} 
-        function highlight({selector,title,text,effect}){const t=document.querySelector(selector);if(!t){toast(`Element not found: ${selector}`);return false;}t.scrollIntoView({behavior:'smooth',block:'center'});const r=rect(t);if(effect==='zoom'){t.classList.add('uc-zoom-target');t.style.transformOrigin='center center';t.style.transform='scale(1.12)';setTimeout(()=>{t.style.transform='';},Math.min(conf.delay,1800));}
+        function highlight({selector,title,text,effect}){const t=document.querySelector(selector);if(!t){toast(`Element not found: ${selector}`);return false;}t.scrollIntoView({behavior:'auto',block:'center',inline:'center'});const r=rect(t);if(effect==='zoom'){t.classList.add('uc-zoom-target');t.style.transformOrigin='center center';t.style.transform='scale(1.12)';setTimeout(()=>{t.style.transform='';},Math.min(conf.delay,1800));}
           const box=el('div','uc-spotlight-box');Object.assign(box.style,{top:`${Math.max(4,r.top-6)}px`,left:`${Math.max(4,r.left-6)}px`,width:`${r.width+12}px`,height:`${r.height+12}px`});document.body.appendChild(box);
           const tip=el('div','uc-tour-tip',`<div class=\"uc-tip-title\">${title||''}</div><div class=\"uc-tip-text\">${text||''}</div>`);const tLeft=Math.min(window.innerWidth-560-12,r.right+12);const tTop=Math.max(12,r.top);Object.assign(tip.style,{left:`${tLeft}px`,top:`${tTop}px`});document.body.appendChild(tip);
           // Ring now applied directly on tip via CSS; no separate spotlight needed
@@ -104,7 +114,7 @@
           if(s.kind==='center') centerTip(s.title,s.text,s.bullets);
           if(s.kind==='highlight'){
             const ok=highlight(s);
-            if(!ok) nextStep();
+            if(!ok){ if(state.playing) nextStep(); }
           }
         }
         function nextStep(){if(state.current<state.steps.length-1){state.current+=1}else if(conf.loop){state.current=1}updateUrl();render();}

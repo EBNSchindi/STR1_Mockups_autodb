@@ -5,6 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>UC4 — Context Documentation · Question Cards</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../assets/tour.css" />
+    <script>
+      window.UC_TOUR_OPTS = {
+        backHref: "../index.html",
+        md: "",
+        delay: 3500,
+        loop: false
+      };
+    </script>
+    <script id="uc-meta" type="application/json">
+      {
+        "title": "UC4 — Context Documentation",
+        "user_story": "As a builder, I want comprehensive documentation tools, so I can create self‑explanatory dashboards with embedded guidance",
+        "problem": "Dashboards often lack context; users misinterpret visuals and knowledge gets lost.",
+        "problem_bullets": [
+          "<b>Missing context</b>: Visuals without explanation",
+          "<b>Support load</b>: Users need help interpreting",
+          "<b>Knowledge loss</b>: No embedded best practices"
+        ],
+        "core": "Unified Question Cards + Data Literacy with AI enhancement and publish validation.",
+        "core_bullets": [
+          "<b>Multi‑level scope</b> (Visual, Page, Dashboard)",
+          "<b>Question Cards</b> + status (AI‑validated)",
+          "<b>Data Literacy</b>: explanations & KPI definitions",
+          "<b>Publication controls</b> ensure completeness"
+        ],
+        "highlights": [
+          { "selector": ".documentation-scope", "title": "Scope Selection", "text": "Choose Visual, Page, or Dashboard context.", "effect": "box" },
+          { "selector": ".documentation-tabs", "title": "Tabbed Content", "text": "Manage Question Cards, Data Literacy, and Context Info.", "effect": "box" },
+          { "selector": ".question-list", "title": "Question Cards", "text": "Primary, drill‑down, and AI‑suggested questions with validation.", "effect": "box" },
+          { "selector": ".publication-controls", "title": "Publish Requirements", "text": "Documentation must be complete before publishing.", "effect": "box" }
+        ]
+      }
+    </script>
+    <script defer src="../assets/tour.js"></script>
   </head>
   <body>
     <div class="shell">

@@ -5,6 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>UC2 — Visual Matching · Screenshot Intelligence</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../assets/tour.css" />
+    <script>
+      window.UC_TOUR_OPTS = {
+        backHref: "../index.html",
+        md: "",
+        delay: 3500,
+        loop: false
+      };
+    </script>
+    <script id="uc-meta" type="application/json">
+      {
+        "title": "UC2 — Visual Matching",
+        "user_story": "As a builder, I want layout suggestions from screenshots, so I can quickly replicate proven designs",
+        "problem": "Creating layouts from scratch takes time; results are inconsistent across teams.",
+        "problem_bullets": [
+          "<b>Slower start</b>: Layouts need to be rebuilt manually",
+          "<b>Inconsistency</b>: Designs vary by builder",
+          "<b>Cognitive load</b>: Too many design decisions upfront"
+        ],
+        "core": "AI analyzes your screenshot and proposes ranked, editable layout suggestions.",
+        "core_bullets": [
+          "<b>Smart recognition</b> (charts, spacing, typography)",
+          "<b>Multiple suggestions</b> with confidence scores",
+          "<b>One‑click apply</b> + preview",
+          "<b>Learning</b> improves matches over time"
+        ],
+        "highlights": [
+          { "selector": ".attachment-card", "title": "Example Upload", "text": "Drop or select an example; analysis starts instantly.", "effect": "box" },
+          { "selector": ".analysis-summary", "title": "Detected Features", "text": "Extracted patterns drive the suggested layouts.", "effect": "box" },
+          { "selector": ".suggestions-grid .suggestion-card.recommended", "title": "Ranked Suggestions", "text": "Best match highlighted with score and quick actions.", "effect": "box" }
+        ]
+      }
+    </script>
+    <script defer src="../assets/tour.js"></script>
   </head>
   <body>
     <div class="shell">

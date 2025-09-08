@@ -5,6 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>UC9 — System Prompts · Contextual AI Configuration</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../assets/tour.css" />
+    <script>
+      window.UC_TOUR_OPTS = {
+        backHref: "../index.html",
+        md: "",
+        delay: 3500,
+        loop: false
+      };
+    </script>
+    <script id="uc-meta" type="application/json">
+      {
+        "title": "UC9 — System Prompts",
+        "user_story": "As a builder, I want custom system prompts, so AI guidance matches my industry, audience and compliance needs",
+        "problem": "Generic AI responses miss context like industry focus or compliance level.",
+        "problem_bullets": [
+          "<b>Low relevance</b>",
+          "<b>Missed compliance</b>",
+          "<b>Wrong audience level</b>"
+        ],
+        "core": "Define and activate prompts to shape AI behavior; preview current context and benefits.",
+        "core_bullets": [
+          "<b>Manage prompts</b> and edit list",
+          "<b>Add</b> new prompts quickly",
+          "<b>Context preview</b> of active settings",
+          "<b>Benefit list</b> for outcomes"
+        ],
+        "highlights": [
+          { "selector": ".custom-prompt-manager", "title": "Prompt Manager", "text": "Configure custom prompts for tailored guidance.", "effect": "box" },
+          { "selector": ".active-prompts .prompt-list", "title": "Active Prompts", "text": "See and edit what’s currently applied.", "effect": "box" },
+          { "selector": ".context-preview", "title": "AI Context", "text": "How responses will be shaped now.", "effect": "box" },
+          { "selector": ".context-benefits", "title": "Benefits", "text": "What you gain from configured prompts.", "effect": "box" }
+        ]
+      }
+    </script>
+    <script defer src="../assets/tour.js"></script>
   </head>
   <body>
     <div class="shell">

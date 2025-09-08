@@ -5,6 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>UC3 — UX Advisory · dm Standards Integration</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../assets/tour.css" />
+    <script>
+      window.UC_TOUR_OPTS = {
+        backHref: "../index.html",
+        md: "",
+        delay: 3500,
+        loop: false
+      };
+    </script>
+    <script id="uc-meta" type="application/json">
+      {
+        "title": "UC3 — UX Advisory",
+        "user_story": "As a builder, I want AI-powered UX review using dm standards, so I can ensure professional quality and accessibility compliance",
+        "problem": "Manual UX reviews are slow, inconsistent, and frequently miss accessibility issues.",
+        "problem_bullets": [
+          "<b>Time</b>: Manual checks take too long",
+          "<b>Consistency</b>: Results vary per reviewer",
+          "<b>Accessibility</b>: Issues are often overlooked"
+        ],
+        "core": "AI analyzes visuals with dm standards and WCAG to deliver prioritized fixes and measurable UX scores.",
+        "core_bullets": [
+          "<b>External data integration</b> (dm style guide, WCAG, best practices)",
+          "<b>Multi-level analysis</b> (Visual → Page → Dashboard)",
+          "<b>Actionable recommendations</b> with auto-fix options",
+          "<b>UX scores</b> with category breakdown"
+        ],
+        "highlights": [
+          { "selector": ".data-sources", "title": "External Knowledge", "text": "dm standards, WCAG and best practices loaded for review.", "effect": "box" },
+          { "selector": ".ux-scorecard", "title": "UX Scorecard", "text": "Overall score with category breakdown to track improvements.", "effect": "box" },
+          { "selector": ".fix-recommendations", "title": "Priority Fixes", "text": "High/Medium/Low fixes with sources; auto-fix actions available.", "effect": "box" },
+          { "selector": ".multi-level-context", "title": "Analysis Scope", "text": "Switch between Visual, Page, and Dashboard contexts.", "effect": "box" }
+        ]
+      }
+    </script>
+    <script defer src="../assets/tour.js"></script>
   </head>
   <body>
     <div class="shell">

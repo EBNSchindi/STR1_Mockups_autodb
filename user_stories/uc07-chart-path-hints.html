@@ -5,6 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>UC7 — Chart Path Hints · Dashboard Board Visualization</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../assets/tour.css" />
+    <script>
+      window.UC_TOUR_OPTS = {
+        backHref: "../index.html",
+        md: "",
+        delay: 3500,
+        loop: false
+      };
+    </script>
+    <script id="uc-meta" type="application/json">
+      {
+        "title": "UC7 — Chart Path Hints",
+        "user_story": "As a consumer, I want inline path hints on charts, so I can follow the recommended flow from within the dashboard",
+        "problem": "Users don’t notice or follow curated paths from charts.",
+        "problem_bullets": [
+          "<b>Low visibility</b> of active path",
+          "<b>No guidance</b> inside chart widgets",
+          "<b>Fragmented</b> chart vs. sidebar info"
+        ],
+        "core": "Expose active path in the chart widget, show guided steps and key insights nearby.",
+        "core_bullets": [
+          "<b>Path indicator</b> on the widget",
+          "<b>Guide</b> with current/next steps",
+          "<b>Insights</b> to highlight focus",
+          "<b>Actions</b> to follow/explore"
+        ],
+        "highlights": [
+          { "selector": ".chart-widget.main-widget .widget-header .path-indicator", "title": "Path Indicator", "text": "Shows that a curated path is active.", "effect": "box" },
+          { "selector": ".chart-widget.main-widget .chart-content", "title": "Chart Focus", "text": "Interact where the guided flow begins.", "effect": "box" },
+          { "selector": ".guide-widget .guide-content", "title": "Sidebar Guide", "text": "Current and upcoming steps.", "effect": "box" },
+          { "selector": ".insights-widget", "title": "Key Insights", "text": "Context that motivates the guided path.", "effect": "box" }
+        ]
+      }
+    </script>
+    <script defer src="../assets/tour.js"></script>
   </head>
   <body class="dashboard-board">
     <!-- Dashboard Header -->

@@ -41,8 +41,8 @@ This repository contains static mockups for the Auto Dashboard and Autobot Chat.
 
 ## Use Case Tour Pattern (UC1–UC10) — Locked
 - Entry banner: fixed top-left; shows UC title; readable at presentation scale.
-- Step order: 1) Problem (center tip), 2) Core (center tip), 3+) UI highlights from `highlights`.
-- Bullets: use `problem_bullets` and `core_bullets` in the inline meta (see UC1).
+- Step order: 1) User Story (center tip), 2) Problem (center tip), 3) Core / Key Points (center tip), 4+) UI highlights from `highlights`.
+- Bullets: use `problem_bullets` and `core_bullets` in the inline meta (see UC1). Title for the core section must be “Core / Key Points”.
  - Manual Steps: one spotlight on the container `#manual-steps` (no per‑item steps).
 
 - Tip sizes
